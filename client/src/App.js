@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      auth: false
+    }
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA0g-O4WloNZxjgvJ0ASrck3xq1DuYtV7s",
+      authDomain: "ga-tinder.firebaseapp.com",
+      databaseURL: "https://ga-tinder.firebaseio.com",
+      projectId: "ga-tinder",
+      storageBucket: "ga-tinder.appspot.com",
+      messagingSenderId: "511990920076"
+    };
+    firebase.initializeApp(config);
+  }
   render() {
     return (
       <div className="App">
