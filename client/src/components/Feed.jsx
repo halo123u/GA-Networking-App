@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Feed extends Component{
     constructor(props){
         super(props);
@@ -16,3 +17,7 @@ class Feed extends Component{
 }
 
 export default Feed;
+<<<<<<< HEAD
+=======
+
+>>>>>>> add component
