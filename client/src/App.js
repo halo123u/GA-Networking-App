@@ -59,6 +59,7 @@ class App extends Component {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
         var providerData = user.providerData;
+        document.querySelector("#sign-in").innerHTML = (`Welcome Back ${displayName}`)
         grabUser(userInfo)
       } else {
       // User is signed out.
@@ -87,12 +88,12 @@ class App extends Component {
           </div>
           <div id="firebaseui-auth-container"></div>
           <div className="authStatus" >
+          <Route exact path='/user' component={User} />
               <div id="sign-in-status"></div>
               <div id="sign-in"></div>
               <div id="account-details"></div>
           </div>
           <Route exact path='' component={this.App} />
-          <Route exact path='/user' component={User} />
         </div>
       {/* </Switch> */}
     </Router>
