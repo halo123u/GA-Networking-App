@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<
+>>>>>>> add structure
 class Profile extends Component{
     constructor(props){
         super(props);
@@ -9,7 +13,7 @@ class Profile extends Component{
         }
     }
     componentDidMount() {
-        
+
     }
     render(){
         return(
@@ -21,6 +25,7 @@ class Profile extends Component{
 }
 
 export default Profile;
+<<<<<<< HEAD
 =======
  class Profile extends Component {
   render() {
@@ -31,4 +36,7 @@ export default Profile;
 }
 
 export default Profile;
+>>>>>>> add structure
+=======
+
 >>>>>>> add structure
