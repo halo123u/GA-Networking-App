@@ -19,3 +19,10 @@ CREATE TABLE IF NOT EXISTS profile (
     picture_url VARCHAR(255),
     user_id INT REFERENCES users(id) NOT NULL
 )
+
+/* -- CREATE TABLE IF NOT EXISTS messages (
+--     id SERIAL PRIMARY KEY,
+--     title VARCHAR(255),
+--     time_stamp VARCHAR(255),
+--     content VARCHAR(400)
+-- ) */
