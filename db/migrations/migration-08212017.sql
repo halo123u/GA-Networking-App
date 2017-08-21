@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS profile (
     id SERIAL PRIMARY KEY,
     age INTEGER,
     class VARCHAR(255),
+    cohort VARCHAR(255),
     interest VARCHAR(255),
     location VARCHAR(50),
     bio VARCHAR(140),
