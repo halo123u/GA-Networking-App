@@ -14,7 +14,7 @@ class Home extends Component{
         return(
             <div className="appHome">
                 <h1>
-                    Welcome to GA Tinder
+                    GA Tinder
                 </h1>
             </div>
         )
