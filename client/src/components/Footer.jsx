@@ -4,7 +4,7 @@ import React from 'react';
 const Footer = () => {
     return(
         <footer>
-            <h1>Created by Amidou, Jake, Karen, Waldo</h1>
+            <h6>Created by Amidou, Jake, Karen, Waldo</h6>
         </footer>
     )
 }
