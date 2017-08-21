@@ -9,3 +9,13 @@ CREATE TABLE IF NOT EXISTS users (
     last_name TEXT,
 )
 
+CREATE TABLE IF NOT EXISTS profile (
+    id SERIAL PRIMARY KEY,
+    gender VARCHAR(1),
+    age INTEGER,
+    interest VARCHAR(255),
+    location VARCHAR(50),
+    bio VARCHAR(140),
+    picture_url VARCHAR(255),
+    user_id INT REFERENCES users(id) NOT NULL
+)
