@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
+import * as firebase from "firebase";
 import firebaseui from 'firebaseui';
 import User from './components/User';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -10,7 +10,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      auth: false
+      loggedIn: false,
+      userData: null,
     }
     // Initialize Firebase
     var config = {
@@ -23,6 +24,9 @@ class App extends Component {
     };
 
     firebase.initializeApp(config);
+    this.rootRef = firebase.database().ref();
+    this.userData = this.rootRef.child('accountInfo');
+
     var uiConfig = {
         signInSuccessUrl: '/user',
         signInOptions: [
@@ -43,8 +47,34 @@ class App extends Component {
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
 
+      firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+      // User is signed in.
+        console.log(user.toJSON())
+        var userInfo = user.toJSON();
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        grabUser(userInfo)
+      } else {
+      // User is signed out.
+        console.log('signed out')
+        }
+      });
+
+      function grabUser(userInfo){
+        console.log(userInfo)
+      }
+
   }
 
+  userAuth=(user)=>{
+    console.log(user)
+  }
 
   render() {
     
@@ -56,7 +86,7 @@ class App extends Component {
             <h1>Welcome to My Awesome App</h1>
           </div>
           <div id="firebaseui-auth-container"></div>
-          <div className="authStatus">
+          <div className="authStatus" >
               <div id="sign-in-status"></div>
               <div id="sign-in"></div>
               <div id="account-details"></div>
@@ -71,3 +101,7 @@ class App extends Component {
 }
 
 export default App;
+
+// export function logout () {
+//   return firebaseAuth().signOut()
+// }
