@@ -1,4 +1,4 @@
-\c ga_tinder_dev
+\c ga_network_dev
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS profile (
     id SERIAL PRIMARY KEY,
-    gender VARCHAR(255),
     age INTEGER,
+    class VARCHAR(255),
     interest VARCHAR(255),
     location VARCHAR(50),
     bio VARCHAR(140),
