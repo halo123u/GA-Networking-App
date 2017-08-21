@@ -2,10 +2,10 @@ const Profile = require('../models/profile');
 
 const profileController = {
     getProfile: (req,res)=>{
-        Profile.getInfo(req.user.id).then(data=>{
-            console.log(data);
-            console.log('hello');
+        Profile.getInfo(req.params.id).then(data=>{
             res.json(data);
+        }).catch(err=>{
+            console.log(err);
         });
     },
     createProfile: (req,res) => {
@@ -16,9 +16,9 @@ const profileController = {
             interest : req.body.interest,
             location : req.body.location,
             bio : req.body.bio,
-            pic : req.body.picture_url
+            pic : req.body.picture_url,
+            user_id : req.body.user_id
         }).then(data=>{
-                console.log(data);
                 res.send(data);
             }).catch(err=>{
                 console.log(err);
