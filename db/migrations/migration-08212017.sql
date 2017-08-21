@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS users (
     password_digest TEXT NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     first_name TEXT,
-    last_name TEXT,
-)
+    last_name TEXT
+);
 
 CREATE TABLE IF NOT EXISTS profile (
     id SERIAL PRIMARY KEY,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS profile (
     bio VARCHAR(140),
     picture_url VARCHAR(255),
     user_id INT REFERENCES users(id) NOT NULL
-)
+);
 
 /* -- CREATE TABLE IF NOT EXISTS messages (
 --     id SERIAL PRIMARY KEY,
