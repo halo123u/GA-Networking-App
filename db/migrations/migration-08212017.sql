@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS profile (
     id SERIAL PRIMARY KEY,
-    gender VARCHAR(1),
+    gender VARCHAR(255),
     age INTEGER,
     interest VARCHAR(255),
     location VARCHAR(50),
