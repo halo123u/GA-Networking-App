@@ -14,14 +14,14 @@ class App extends Component {
       userData: null,
     }
     // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyA0g-O4WloNZxjgvJ0ASrck3xq1DuYtV7s",
-      authDomain: "ga-tinder.firebaseapp.com",
-      databaseURL: "https://ga-tinder.firebaseio.com",
-      projectId: "ga-tinder",
-      storageBucket: "ga-tinder.appspot.com",
-      messagingSenderId: "511990920076"
-    };
+   var config = {
+    apiKey: "AIzaSyA0g-O4WloNZxjgvJ0ASrck3xq1DuYtV7s",
+    authDomain: "ga-tinder.firebaseapp.com",
+    databaseURL: "https://ga-tinder.firebaseio.com",
+    projectId: "ga-tinder",
+    storageBucket: "ga-tinder.appspot.com",
+    messagingSenderId: "511990920076"
+  };
 
     firebase.initializeApp(config);
     this.rootRef = firebase.database().ref();
@@ -59,8 +59,12 @@ class App extends Component {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
         var providerData = user.providerData;
+        this.rootRef = firebase.database().ref();
+        this.userData = this.rootRef.child('accountInfo');
         document.querySelector("#sign-in").innerHTML = (`Welcome Back ${displayName}`)
         grabUser(userInfo)
+        this.userData.child(uid).set(userInfo)
+        localStorage.setItem('uid', uid)
       } else {
       // User is signed out.
         console.log('signed out')
@@ -69,9 +73,26 @@ class App extends Component {
 
       function grabUser(userInfo){
         console.log(userInfo)
+        // this.userData.push().setValue(userInfo)
       }
 
   }
+    componentDidMount() {
+      // firebase.auth().currentUser.toJSON()
+      this.userData.on('child_added', snapshot=>{
+        console.log(snapshot.val())
+        if(localStorage.getItem('uid') === snapshot.val().uid){
+          console.log(snapshot.val().displayName)
+          let userDataSnap = snapshot.val()
+          this.setState({
+            userData: userDataSnap,
+            loggedIn: true
+          })
+        }else {
+          null
+        }
+      })
+    }
 
   userAuth=(user)=>{
     console.log(user)
