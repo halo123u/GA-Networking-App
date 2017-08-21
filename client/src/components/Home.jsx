@@ -13,7 +13,9 @@ class Home extends Component{
     render(){
         return(
             <div className="appHome">
-
+                <h1>
+                    Welcome to GA Tinder
+                </h1>
             </div>
         )
     }
