@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as firebase from "firebase";
 import firebaseui from 'firebaseui';
-import User from './components/User';
+// import User from './components/User';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import './App.css';
@@ -88,7 +88,6 @@ class App extends Component {
           </div>
           <div id="firebaseui-auth-container"></div>
           <div className="authStatus" >
-          <Route exact path='/user' component={User} />
               <div id="sign-in-status"></div>
               <div id="sign-in"></div>
               <div id="account-details"></div>
