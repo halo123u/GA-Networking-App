@@ -6,20 +6,21 @@ class Profile extends Component{
         this.state = {
             profileInfo: null
         }
-        console.log(this.props)
-        console.log(this.props.data)
-        console.log(props.data)
+        console.log(this.props.state)
     }
     componentDidMount() {
-        this.setState({
-            profileInfo: this.props.data
-        })
+        // console.log(this.props.location.state.data)
+        // let profile = this.props.location.state.data
+        // this.setState({
+        //     profileInfo: profile
+        // })
     }
     render(){
-        console.log(this.props.data)
+        // let profile = this.props.location.state.data;
         return(
             <div className="Profile">
-                
+                {/* <h1 className="userName">{profile.displayName}</h1>
+                <img src={profile.photoURL} alt="profile Image"/> */}
             </div>
         )
     }

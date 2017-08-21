@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as firebase from "firebase";
 import firebaseui from 'firebaseui';
 import Profile from './components/Profile';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 import './App.css';
 
@@ -52,33 +52,19 @@ class App extends Component {
       // User is signed in.
         console.log(user.toJSON())
         var userInfo = user.toJSON();
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
         this.rootRef = firebase.database().ref();
         this.userData = this.rootRef.child('accountInfo');
-        document.querySelector("#sign-in").innerHTML = (`Welcome Back ${displayName}`)
-        grabUser(userInfo)
-        this.userData.child(uid).set(userInfo)
-        localStorage.setItem('uid', uid)
+        document.querySelector("#sign-in").innerHTML = (`Welcome Back ${userInfo.displayName}`)
+        this.userData.child(userInfo.uid).set(userInfo)
+        localStorage.setItem('uid', userInfo.uid)
       } else {
       // User is signed out.
-        console.log('signed out')
+        console.log('Not Signed In')
         }
       });
 
-      function grabUser(userInfo){
-        console.log(userInfo)
-        // this.userData.push().setValue(userInfo)
-      }
-
   }
     componentDidMount() {
-      // firebase.auth().currentUser.toJSON()
       this.userData.on('child_added', snapshot=>{
         console.log(snapshot.val())
         if(localStorage.getItem('uid') === snapshot.val().uid){
@@ -94,15 +80,21 @@ class App extends Component {
       })
     }
 
-  userAuth=(user)=>{
-    console.log(user)
-  }
-
   render() {
-    
     return (
+      <Router>
+        <div className="App">
+          <Header />
+          <div className="container">
+            <Route exact path="/" component={Home} />
+            <Route exact path="/Profile" component={Profile} />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/Register" component={Register} />
+          </div>
+          <Footer />
+        </div>
+      </Router>
     <Router>
-      {/* <Switch> */}
         <div className="App">
           <div className="App-header">
             <h1>Welcome to My Awesome App</h1>
@@ -112,13 +104,15 @@ class App extends Component {
               <div id="sign-in-status"></div>
               <div id="sign-in"></div>
               <div id="account-details"></div>
-           <Route exact path='/Profile' render={(props)=>{
-             return <Profile {...props} data={this.state.userData} />
-           }} /> 
+          </div>
+              <Link to={{
+                pathname: '/Profile',
+                state: { data: this.state.userData }
+              }}> Profile </Link>
+              <Route exact path='/Profile' component={Profile} />
           </div>
           <Route exact path='' component={this.App} />
         </div>
-      {/* </Switch> */}
     </Router>
     );
   }
