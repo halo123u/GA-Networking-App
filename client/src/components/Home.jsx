@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+import Login from './Login';
+import Register from './Register';
+
 import {Link} from 'react-router-dom'
 
 class Home extends Component{
@@ -16,6 +20,14 @@ class Home extends Component{
                 <h1>
                     GA Tinder
                 </h1>
+                <main>
+                    <div className="authInfo">
+                        <ul>
+                            <li><button type="button"><Link to='/login'>Login</Link></button></li>
+                            <li><button type="button"><Link to='/register'>Register</Link></button></li>
+                        </ul>
+                    </div>
+                </main>
             </div>
         )
     }
