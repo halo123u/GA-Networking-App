@@ -40,6 +40,8 @@ app.get('/',(req,res)=>{
 // const authRoutes = require('./routes/auth-routes');
 // app.use('/auth', authRoutes);
 
+const profileRoutes = require('./routes/profile-routes');
+app.use('/profile/', profileRoutes);
 app.get('*',(req,res)=>{
     res.status(400).json({
         message: 'Not found!',
