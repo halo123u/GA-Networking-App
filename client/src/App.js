@@ -19,7 +19,8 @@ class App extends Component {
         super()
         this.state = {
           auth: false,
-          user: null
+          user: null,
+          currentPage: '/'
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
@@ -29,6 +30,7 @@ class App extends Component {
 
 handleLoginSubmit = (e, username, password) => {
   e.preventDefault();
+  console.log("hi")
   axios.post('/auth/login', {
     username,
     password
@@ -38,6 +40,7 @@ handleLoginSubmit = (e, username, password) => {
     user: res.data.user,
     currentPage: 'home'
     })
+  // 
   }).catch(err => console.log(err))
 }  
 
@@ -53,9 +56,9 @@ handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
   }).then(res => {
     this.setState ({
       auth: res.data.auth,
-      user: res.data.user,
-      currentPage: 'home'
+      user: res.data.user
     })
+    Router.props.history.push('/profileForm')
   }).catch(err => console.log(err))
 }
 
@@ -64,8 +67,7 @@ logOut = () => {
   .then(res => {
     console.log(res)
     this.setState ({
-      auth: false,
-      currentPage: 'home'
+      auth: false
     })
   }).catch(err => console.log(err))
 }

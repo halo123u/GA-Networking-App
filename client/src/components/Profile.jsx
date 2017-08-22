@@ -8,7 +8,7 @@ class Profile extends Component{
         }
     }
     componentDidMount() {
-        
+        // axios.get(`profile/${}`)
     }
     render(){
         return(

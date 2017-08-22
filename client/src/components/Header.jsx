@@ -7,7 +7,7 @@ const Header = (props) => {
             <nav>
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/login'>Login</Link></li>
-                  <li onClick={props.logOut}>Log Out</li>
+                <li onClick={props.logOut}><a href="#">Log Out</a></li>
                 <li><Link to='/register'>Register</Link></li>
                 <li><Link to='/feed'>Discover</Link></li>
                 <li><Link to='/profile'>Profile</Link></li>
