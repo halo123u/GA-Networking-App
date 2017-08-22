@@ -29,7 +29,7 @@ class ProfileEdit extends Component {
         axios.get(`/profile/${this.props.data.id}`)
         .then((res) => {
             console.log(res.data[0])
-            let info = re.data[0]
+            let info = res.data[0]
             this.setState({
                 formData: info,
             })
