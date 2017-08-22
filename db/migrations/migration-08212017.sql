@@ -1,4 +1,7 @@
 \c ga_network_dev
+DROP TABLE messages;
+DROP TABLE profile;
+DROP TABLE users;
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
