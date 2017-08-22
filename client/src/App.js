@@ -43,6 +43,7 @@ handleLoginSubmit = (e, username, password) => {
 
 handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
   e.preventDefault();
+  console.log(username);
   axios.post('/auth/register', {
     username,
     password,
@@ -77,7 +78,7 @@ logOut = () => {
           <div className="container">
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
+            <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/messages" component={Message} />
