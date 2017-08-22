@@ -12,6 +12,20 @@ const Profile ={
         VALUES($1,$2,$3,$4,$5,$6,$7,$8)
         RETURNING *`,
         [profile.age,profile.class,profile.cohort,profile.interest, profile.location,profile.bio,profile.picture_url,profile.user_id])
+    },
+    editInfo : (profile,id)=>{
+        return db.one(`
+        UPDATE profile SET
+        age = $1,
+        class = $2,
+        cohort = $3,
+        interest=$4,
+        location=$5,
+        bio=$6,
+        picture_url=$7
+        WHERE user_id =$8
+        RETURNING *`,
+    [profile.age,profile.class,profile.cohort,profile.interest, profile.location,profile.bio,profile.picture_url,id])
     }
 
 }
