@@ -26,6 +26,11 @@ const Profile ={
         WHERE user_id =$8
         RETURNING *`,
     [profile.age,profile.class,profile.cohort,profile.interest, profile.location,profile.bio,profile.picture_url,id])
+    },
+    getAll: ()=>{
+        return db.query(`
+        SELECT users.first_name, users.last_name, profile.age, profile.class, profile.bio, profile.picture_url 
+        FROM users join profile on users.id = profile.user_id`)
     }
 
 }
