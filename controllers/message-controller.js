@@ -1,8 +1,14 @@
 const Message = require('../models/message');
 
 const messageController = {
-    getAllMessages: (req, res) => {
-        Message.findAll().then(messages => {
+    getAllSentMessages: (req, res) => {
+        Message.findAllSentMessages(req.params.id).then(messages => {
+            res.json({messages});
+        });
+    },
+
+    getAllReceivedMessages: (req, res) => {
+        Message.findAllReceivedMessages(req.params.id).then(messages => {
             res.json({messages});
         });
     },
@@ -14,11 +20,14 @@ const messageController = {
     },
 
     createMessage: (req, res) => {
+        console.log(req.body.recipient_id);
+        console.log(req.body.time_stamp);
+        console.log(req.body.content);
         Message.create({
-            name_from: req.body.name_from,
+            recipient_id: req.body.recipient_id,
             time_stamp: req.body.time_stamp,
             content: req.body.content
-        }, req.user.id).then(message=>{
+        }, req.params.user_id).then(message=>{
             res.json({message});
         }).catch(err=>{
             console.log(err);

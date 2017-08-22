@@ -2,11 +2,18 @@ const db = require('../db/config');
 
 const Message = {};
 
-Message.findAll = () => {
+Message.findAllSentMessages = (id) => {
     return db.query(`
         SELECT * FROM messages
-        ORDER BY id ASC
-    `);
+        WHERE sender_id = $1
+    `, [id]);
+}
+
+Message.findAllReceivedMessages = (id) => {
+    return db.query(`
+        SELECT * FROM messages
+        WHERE recipient_id = $1
+    `, [id]);
 }
 
 Message.findById = (id) => {
@@ -16,15 +23,14 @@ Message.findById = (id) => {
     `, [id]);
 }
 
-Message.create = (message, id) => {
+Message.create = (message, sender_id) => {
     return db.one(`
         INSERT INTO messages
-        (name_from, time_stamp, content)
+        (sender_id, recipient_id, time_stamp, content)
         VALUES
-        ($1, $2, $3)
-        WHERE id = $4
+        ($1, $2, $3, $4)
         RETURNING *
-    `, [message.name_from, message.time_stamp, message.content, id]);
+    `, [sender_id, message.recipient_id, message.time_stamp, message.content]);
 }
 
 Message.delete = (id) => {
