@@ -11,7 +11,7 @@ const profileController = {
     createProfile: (req,res) => {
         Profile.setInfo({
             age: req.body.age,
-            class: req.body.class,
+            class: req.body.class_name,
             cohort: req.body.cohort,
             interest : req.body.interest,
             location : req.body.location,
@@ -28,7 +28,7 @@ const profileController = {
     editProfile: (req,res)=>{
         Profile.editInfo({
             age: req.body.age,
-            class: req.body.class,
+            class: req.body.class_name,
             cohort: req.body.cohort,
             interest : req.body.interest,
             location : req.body.location,
