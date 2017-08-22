@@ -34,4 +34,4 @@ Message.delete = (id) => {
     `, [id]);
 }
 
-
+module.exports = Message;
