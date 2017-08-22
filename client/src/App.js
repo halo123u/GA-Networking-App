@@ -6,9 +6,10 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Feed from './components/Feed';
-import Message from './components/Message';
+import DMList from './components/DMList';
 import Profile from './components/Profile';
 import ProfileForm from './components/ProfileForm';
+import ProfileEdit from './components/ProfileEdit';
 import Footer from './components/Footer';
 
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
@@ -89,14 +90,13 @@ logOut = () => {
         <div className="App">
           <Header logOut={this.props.logout} />
           <div className="container">
-            <Route exact path="/" component={Home} />
             <Route exact path="/login" render={() => <Login submit={this.handleLoginSubmit} />} />
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/profile/:id" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
+            <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
             <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
-            <Route exact path="/messages" component={Message} />
+            <Route exact path="/inbox" render={() => <DMList data={this.state.user} />} />
           </div>
           <Footer />
         </div>
