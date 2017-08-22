@@ -21,9 +21,9 @@ CREATE TABLE IF NOT EXISTS profile (
     user_id INT REFERENCES users(id) NOT NULL
 );
 
-/* -- CREATE TABLE IF NOT EXISTS messages (
---     id SERIAL PRIMARY KEY,
---     title VARCHAR(255),
---     time_stamp VARCHAR(255),
---     content VARCHAR(400)
--- ) */
+ CREATE TABLE IF NOT EXISTS messages (
+     id SERIAL PRIMARY KEY,
+     name_from VARCHAR(255),
+     time_stamp VARCHAR(255),
+     content VARCHAR(400)
+); 
