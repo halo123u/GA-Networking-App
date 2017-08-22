@@ -16,7 +16,7 @@ const profileController = {
             interest : req.body.interest,
             location : req.body.location,
             bio : req.body.bio,
-            pic : req.body.picture_url,
+            picture_url : req.body.pic,
             user_id : req.body.user_id
         }).then(data=>{
                 res.send(data);

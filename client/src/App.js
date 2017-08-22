@@ -8,9 +8,10 @@ import Register from './components/Register';
 import Feed from './components/Feed';
 import Message from './components/Message';
 import Profile from './components/Profile';
+import ProfileForm from './components/ProfileForm';
 import Footer from './components/Footer';
 
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 import './App.css';
 
@@ -19,7 +20,9 @@ class App extends Component {
         super()
         this.state = {
           auth: false,
-          user: null
+          user: null,
+          currentPage: '/',
+          profileFormInfo: null
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
@@ -27,8 +30,10 @@ class App extends Component {
         this.logOut = this.logOut.bind(this);
      }
 
+
 handleLoginSubmit = (e, username, password) => {
   e.preventDefault();
+  console.log("hi");
   axios.post('/auth/login', {
     username,
     password
@@ -36,9 +41,9 @@ handleLoginSubmit = (e, username, password) => {
     this.setState ({
     auth: res.data.auth,
     user: res.data.user,
-    currentPage: 'home'
+    currentPage: 'profile'
     })
-  }).catch(err => console.log(err))
+  }).catch(err => console.log(err));
 }  
 
 handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
@@ -54,9 +59,18 @@ handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
     this.setState ({
       auth: res.data.auth,
       user: res.data.user,
-      currentPage: 'home'
+      currentPage: '/profileForm'
     })
   }).catch(err => console.log(err))
+}
+
+handleProfileFormSubmit = (e, age, class_name, cohort, interest, location, bio, pic, user_id) => {
+  e.preventDefault();
+  axios.post('/profile',{
+    age, class_name, cohort, interest, location, bio, pic, user_id
+  }).then(res=>{
+    console.log(res)
+  }).catch(err=>console.log(err))
 }
 
 logOut = () => {
@@ -64,8 +78,7 @@ logOut = () => {
   .then(res => {
     console.log(res)
     this.setState ({
-      auth: false,
-      currentPage: 'home'
+      auth: false
     })
   }).catch(err => console.log(err))
 }
@@ -81,6 +94,8 @@ logOut = () => {
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/:id" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
+            <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
             <Route exact path="/messages" component={Message} />
           </div>
           <Footer />
