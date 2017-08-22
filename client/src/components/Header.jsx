@@ -11,6 +11,7 @@ const Header = (props) => {
                 <li><Link to='/register'>Register</Link></li>
                 <li><Link to='/feed'>Discover</Link></li>
                 <li><Link to='/profile'>Profile</Link></li>
+                <li><Link to='/profileForm'>Profile Form</Link></li>
                 <li><Link to='/messages'>DMs</Link></li>
             </nav>
         </header>

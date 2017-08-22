@@ -8,7 +8,7 @@ class Login extends Component{
             username: '',
             password: ''
         }
-         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(e) {
@@ -21,6 +21,7 @@ class Login extends Component{
       } 
 
     render(){
+
         return(
             <div className="login">
               <form onSubmit={(e) => this.props.submit(e, this.state.username, this.state.password)}>

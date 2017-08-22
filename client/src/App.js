@@ -29,9 +29,10 @@ class App extends Component {
         this.logOut = this.logOut.bind(this);
      }
 
+
 handleLoginSubmit = (e, username, password) => {
   e.preventDefault();
-  console.log("hi")
+  console.log("hi");
   axios.post('/auth/login', {
     username,
     password
@@ -41,8 +42,7 @@ handleLoginSubmit = (e, username, password) => {
     user: res.data.user,
     currentPage: 'home'
     })
-  Router.props.history.push('/profile')
-  }).catch(err => console.log(err))
+  }).catch(err => console.log(err));
 }  
 
 handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
@@ -59,7 +59,6 @@ handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
       auth: res.data.auth,
       user: res.data.user
     })
-    Router.props.history.push('/profileForm')
   }).catch(err => console.log(err))
 }
 
@@ -84,7 +83,8 @@ logOut = () => {
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/profileForm" component={ProfileForm} />
+            <Route exact path="/profile/:id" render={() => <ProfileForm data={this.state.user} />} />
+            <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} />}/>
             <Route exact path="/messages" component={Message} />
           </div>
           <Footer />
