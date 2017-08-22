@@ -8,6 +8,7 @@ import Register from './components/Register';
 import Feed from './components/Feed';
 import Message from './components/Message';
 import Profile from './components/Profile';
+import ProfileForm from './components/ProfileForm';
 import Footer from './components/Footer';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -40,7 +41,7 @@ handleLoginSubmit = (e, username, password) => {
     user: res.data.user,
     currentPage: 'home'
     })
-  // 
+  Router.props.history.push('/profile')
   }).catch(err => console.log(err))
 }  
 
@@ -83,6 +84,7 @@ logOut = () => {
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profileForm" component={ProfileForm} />
             <Route exact path="/messages" component={Message} />
           </div>
           <Footer />
