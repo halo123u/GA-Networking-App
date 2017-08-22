@@ -41,7 +41,7 @@ handleLoginSubmit = (e, username, password) => {
     this.setState ({
     auth: res.data.auth,
     user: res.data.user,
-    currentPage: 'home'
+    currentPage: 'profile'
     })
   }).catch(err => console.log(err));
 }  
@@ -58,7 +58,8 @@ handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
   }).then(res => {
     this.setState ({
       auth: res.data.auth,
-      user: res.data.user
+      user: res.data.user,
+      currentPage: '/profileForm'
     })
   }).catch(err => console.log(err))
 }
@@ -66,9 +67,10 @@ handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
 handleProfileFormSubmit = (e, age, class_name, cohort, interest, location, bio, picture_url) => {
   e.preventDefault();
   axios.post('/profile',{
-            
-  })
-  // e, this.state.username, this.state.password, this.state.email, this.state.firstName, this.state.lastName)
+    age, class_name, cohort, interest, location, bio, picture_url, userId
+  }).then(res=>{
+    console.log(res)
+  }).catch(err=>console.log(err))
 }
 
 logOut = () => {

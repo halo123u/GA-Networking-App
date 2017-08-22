@@ -7,19 +7,21 @@ class ProfileForm extends Component{
         this.state = {
             userInfo: null,
             age: '',
-            class: '',
+            class_name: '',
             cohort: '',
             interest: '',
             location: '',
             bio: '',
             picture_url: '',
+            user_id: null,
         }
     }
     componentDidMount() {
         if(this.props.user !== null){
             console.log(this.props.user)
             this.setState({
-                userInfo: this.props.user
+                userInfo: this.props.user,
+                user_id: this.props.user.id
             })
         }else{
             console.log('Profile not loaded')
@@ -38,7 +40,7 @@ class ProfileForm extends Component{
             <div className="profileForm">
                 <h1>Profile Form</h1>
                 {/*age,class,cohort,interest,location,bio,picture_url, user_id  */}
-                <form onSubmit={(e) => this.props.submit(e, this.state.username, this.state.password, this.state.email, this.state.firstName, this.state.lastName)}>
+                <form onSubmit={(e) => this.props.submit(e, this.state.age, this.state.class_name, this.state.cohort, this.state.firstName, this.state.lastName, )}>
                   <input type="text" required="true" name="username" placeholder="username" value={this.state.username} onChange={this.handleInputChange} />
                   <input type="password" required="true" name="password" placeholder="password" value={this.state.password} onChange={this.handleInputChange} />
                   <input type="email" required="true" name="email" placeholder="email" value={this.state.email} onChange={this.handleInputChange} />
