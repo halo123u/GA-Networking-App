@@ -20,9 +20,6 @@ const messageController = {
     },
 
     createMessage: (req, res) => {
-        console.log(req.body.recipient_id);
-        console.log(req.body.time_stamp);
-        console.log(req.body.content);
         Message.create({
             recipient_id: req.body.recipient_id,
             time_stamp: req.body.time_stamp,
