@@ -44,7 +44,7 @@ const profileRoutes = require('./routes/profile-routes');
 app.use('/profile/', profileRoutes);
 
 const messageRoutes = require('./routes/message-routes');
-app.use('/message', messageRoutes);
+app.use('/messages', messageRoutes);
 
 app.get('*',(req,res)=>{
     res.status(400).json({
