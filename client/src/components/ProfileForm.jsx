@@ -40,13 +40,15 @@ class ProfileForm extends Component{
             <div className="profileForm">
                 <h1>Profile Form</h1>
                 {/*age,class,cohort,interest,location,bio,picture_url, user_id  */}
-                <form onSubmit={(e) => this.props.submit(e, this.state.age, this.state.class_name, this.state.cohort, this.state.firstName, this.state.lastName, )}>
-                  <input type="text" required="true" name="username" placeholder="username" value={this.state.username} onChange={this.handleInputChange} />
-                  <input type="password" required="true" name="password" placeholder="password" value={this.state.password} onChange={this.handleInputChange} />
-                  <input type="email" required="true" name="email" placeholder="email" value={this.state.email} onChange={this.handleInputChange} />
-                  <input type="First Name" required="true" name="firstName" placeholder="First Name" value={this.state.firstName} onChange={this.handleInputChange} />
-                  <input type="Last Name" required="true" name="lastName" placeholder="Last Name" value={this.state.lastName} onChange={this.handleInputChange} />
-                  <input type="submit" value="Register" onClick={this.handleSubmit} />
+                <form onSubmit={(e) => this.props.submit(e, this.state.age, this.state.class_name, this.state.cohort, this.state.interest, this.state.location, this.state.bio, this.state.picture_url, this.state.user_id)}>
+                  <input type="number" required="true" name="age" placeholder="age" value={this.state.age} onChange={this.handleInputChange} />
+                  <input type="type" required="true" name="class_name" placeholder="class name" value={this.state.class_name} onChange={this.handleInputChange} />
+                  <input type="type" required="true" name="cohort" placeholder="cohort" value={this.state.cohort} onChange={this.handleInputChange} />
+                  <input type="type" required="true" name="interest" placeholder="interest" value={this.state.interest} onChange={this.handleInputChange} />
+                  <input type="type" required="true" name="location" placeholder="location" value={this.state.location} onChange={this.handleInputChange} />
+                  <input type="type" required="true" name="bio" placeholder="bio" value={this.state.bio} onChange={this.handleInputChange} />
+                  <input type="type" required="true" name="picture_url" placeholder="picture_url" value={this.state.picture_url} onChange={this.handleInputChange} />
+                  <input type="submit" value="Submit" onClick={this.handleSubmit} />
                 </form>
             </div>
         )

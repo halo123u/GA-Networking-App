@@ -64,7 +64,7 @@ handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
   }).catch(err => console.log(err))
 }
 
-handleProfileFormSubmit = (e, age, class_name, cohort, interest, location, bio, picture_url) => {
+handleProfileFormSubmit = (e, age, class_name, cohort, interest, location, bio, picture_url, userId) => {
   e.preventDefault();
   axios.post('/profile',{
     age, class_name, cohort, interest, location, bio, picture_url, userId
