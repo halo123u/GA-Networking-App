@@ -13,10 +13,10 @@ class Message extends Component {
 render() {
    return (
      <div className= "message-container">
-        <p>{props.name_from}</p>
+        {/* <p>{props.name_from}</p>
         <p>{props.time_stamp} </p>
-        <p>{props.content}</p>
-          <Link to={#}/>
+        <p>{props.content}</p> */}
+          {/* <Link to={#}/> */}
      </div>
 
      );

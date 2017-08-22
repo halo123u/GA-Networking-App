@@ -25,7 +25,7 @@ class ProfileEdit extends Component {
                 userInfo: this.props.data,
                 user_id: this.props.data.id
             })
-        axios.get(`/profile/:${user_id}`)
+        axios.get(`/profile/:${this.state.user_id}`)
         .then((res) => {
             console.log(res)
         }).catch(err => console.log(err));
@@ -60,9 +60,6 @@ class ProfileEdit extends Component {
     }
 }  
 
-
-
-}
 
 
 export default ProfileEdit;
