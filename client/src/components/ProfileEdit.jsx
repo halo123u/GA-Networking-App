@@ -20,15 +20,19 @@ class ProfileEdit extends Component {
 
     componentDidMount() {
         console.log('mounted')
-        if(this.props.data !== null){
+        if(this.props.data !== undefined){
             console.log(this.props.data)
             this.setState({
                 userInfo: this.props.data,
                 user_id: this.props.data.id
             })
-        axios.get(`/profile/:${this.state.user_id}`)
+        axios.get(`/profile/${this.props.data.id}`)
         .then((res) => {
-            console.log(res)
+            console.log(res.data[0])
+            let info = re.data[0]
+            this.setState({
+                formData: info,
+            })
         }).catch(err => console.log(err));
         }else{
             console.log('Profile not loaded')
