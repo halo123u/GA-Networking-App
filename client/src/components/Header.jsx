@@ -9,7 +9,7 @@ const Header = (props) => {
                 <li><Link to='/login'>Login</Link></li>
                 <li onClick={props.logOut}><a href="#">Log Out</a></li>
                 <li><Link to='/register'>Register</Link></li>
-                <li><Link to='/feed'>Discover</Link></li>
+                <li><Link to='/feed'>Feed</Link></li>
                 <li><Link to='/profile'>Profile</Link></li>
                 <li><Link to='/profileForm'>Profile Form</Link></li>
                 <li><Link to='/profile/edit'> Edit</Link></li>
