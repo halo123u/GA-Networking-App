@@ -10,18 +10,21 @@ constructor(props) {
      this.state= {
         apiDataLoaded: false,
         apiData: null,
+        userInfo: null
      }
 }
 
 componentDidMount() {
-    axios.get(`/messages`)
-    .then(res => {
-        console.log(res)
-        this.setState ({
-            apiDataLoaded: true,
-            apiData: res.data.data,
-        })
-    }).catch(err=>{console.log(err)})
+    if(this.state.userInfo !== null){
+        axios.get(`/messages/receive/${this.props.data.id}`)
+        .then(res => {
+            console.log(res)
+            this.setState ({
+                apiDataLoaded: true,
+                apiData: res.data.data,
+            })
+        }).catch(err=>{console.log(err)})
+    }
 }
 
 renderMessages() {
