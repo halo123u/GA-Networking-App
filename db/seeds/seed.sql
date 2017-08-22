@@ -14,4 +14,10 @@ VALUES
 (1,28, 'WDI', 'Delorean', 'Back-end development', 'New York City', 'I have a computer science degree from X university and enrolled in WDI to sharpen my skills. Looking fo',1),
 (2,24, 'UXDI', 'twin peaks', 'client interaction', 'New York City', 'Looking for web developer to help make a networking app. I have extensive design background special',2),
 (3,30, 'IOS Dev','some name', 'Games', 'New York City', 'Want to make a sidescroll shooter game. Need UX designer to help figure out layout of elements on the screen.',3
-)
+);
+
+INSERT INTO messages
+(name_from, time_stamp, content)
+VALUES
+('Waldo', '10:00am', 'Hey, I  think your projects look cool. Let me know if you would like to collaborate.'),
+('Amidou', '5:00pm', 'When do you think you would be free to meet up? I have a meeting at 2 but Im free after.');

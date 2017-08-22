@@ -42,6 +42,10 @@ app.use('/auth', authRoutes);
 
 const profileRoutes = require('./routes/profile-routes');
 app.use('/profile/', profileRoutes);
+
+const messageRoutes = require('./routes/message-routes');
+app.use('/message', messageRoutes);
+
 app.get('*',(req,res)=>{
     res.status(400).json({
         message: 'Not found!',
