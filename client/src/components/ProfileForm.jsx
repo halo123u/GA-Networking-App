@@ -12,7 +12,7 @@ class ProfileForm extends Component{
             interest: '',
             location: '',
             bio: '',
-            picture_url: '',
+            picture_url: ''
         }
     }
     componentDidMount() {

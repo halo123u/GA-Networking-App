@@ -8,7 +8,7 @@ class Login extends Component{
             username: '',
             password: ''
         }
-         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(e) {
