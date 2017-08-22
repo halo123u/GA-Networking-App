@@ -19,7 +19,6 @@ class ProfileEdit extends Component {
     }
 
     componentDidMount() {
-        console.log('mounted')
         if(this.props.data !== null){
             console.log(this.props.data)
             this.setState({
@@ -60,6 +59,7 @@ class ProfileEdit extends Component {
         )
     }
 }  
+
 
 
 
