@@ -21,7 +21,8 @@ class App extends Component {
         this.state = {
           auth: false,
           user: null,
-          currentPage: '/'
+          currentPage: '/',
+          profileFormInfo: null
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
@@ -62,6 +63,14 @@ handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
   }).catch(err => console.log(err))
 }
 
+handleProfileFormSubmit = (e, age, class_name, cohort, interest, location, bio, picture_url) => {
+  e.preventDefault();
+  axios.post('/profile',{
+            
+  })
+  // e, this.state.username, this.state.password, this.state.email, this.state.firstName, this.state.lastName)
+}
+
 logOut = () => {
   axios.get('/auth/logout')
   .then(res => {
@@ -83,8 +92,8 @@ logOut = () => {
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/profile/:id" render={() => <ProfileForm data={this.state.user} />} />
-            <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} />}/>
+            <Route exact path="/profile/:id" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
+            <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
             <Route exact path="/messages" component={Message} />
           </div>
           <Footer />
