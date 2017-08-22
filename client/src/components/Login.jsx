@@ -8,24 +8,25 @@ class Login extends Component{
             username: '',
             password: ''
         }
-         this.hanleInputChange = this.handleInputChange.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(e) {
         const name = e.target.name;
         const value = e.target.value;
-        this.setState({
-          [name]: value,
+        this.setState ({
+          [name]: value
         });
+        console.log(this.state.name)
       } 
 
     render(){
         return(
             <div className="login">
-              <form onSubmit={(e) => this.props.handleLoginSubmit(e, this.state.username, this.state.password)}>
-              <input type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
-              <input type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
-              <input type="submit" value='Log in!' />
+              <form onSubmit={(e) => this.props.submit(e, this.state.username, this.state.password)}>
+              <input type="text" required="true" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
+              <input type="password" required="true" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
+              <input type="submit" value='Log in!' onClick={this.handleSubmit} />
             </form>
           </div>
         )
