@@ -17,11 +17,11 @@ class ProfileForm extends Component{
         }
     }
     componentDidMount() {
-        if(this.props.user !== null){
-            console.log(this.props.user)
+        if(this.props.data !== null){
+            console.log(this.props.data)
             this.setState({
-                userInfo: this.props.user,
-                user_id: this.props.user.id
+                userInfo: this.props.data,
+                user_id: this.props.data.id
             })
         }else{
             console.log('Profile not loaded')
