@@ -16,7 +16,7 @@ render() {
         <p>{props.name_from}</p>
         <p>{props.time_stamp} </p>
         <p>{props.content}</p>
-            <Link to={#}/>
+          <Link to={#}/>
      </div>
 
      );

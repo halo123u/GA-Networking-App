@@ -94,6 +94,7 @@ logOut = () => {
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
             <Route exact path="/profile/:id" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
             <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
             <Route exact path="/messages" component={Message} />
