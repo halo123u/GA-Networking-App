@@ -16,18 +16,19 @@ constructor(props) {
 componentDidMount() {
     axios.get(`/messages`)
     .then(res => {
+        console.log(res)
         this.setState ({
             apiDataLoaded: true,
             apiData: res.data.data,
         })
-    })
+    }).catch(err=>{console.log(err)})
 }
 
 renderMessages() {
     if (this.state.apiDataLoaded) {
         return this.state.apiData.map(messages => {
             return (
-                <Messages key={messages.id} messages={messages} />
+                <Message key={messages.id} messages={messages} />
             );
         });
     } else return <p>Loading...</p>
