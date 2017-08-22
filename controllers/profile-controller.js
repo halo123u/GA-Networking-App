@@ -41,6 +41,13 @@ const profileController = {
         }).catch(err=>{
             console.log(err);
             res.json(err);
+        });
+    },
+    getAllProfiles: (req,res)=>{
+        Profile.getAll().then(data=>{
+            console.log(data)
+        }).catch(err=>{
+            console.log(err);
         })
     }
 }
