@@ -37,8 +37,8 @@ app.get('/',(req,res)=>{
     res.send('index');
 });
 
-// const authRoutes = require('./routes/auth-routes');
-// app.use('/auth', authRoutes);
+const authRoutes = require('./routes/auth-routes');
+app.use('/auth', authRoutes);
 
 const profileRoutes = require('./routes/profile-routes');
 app.use('/profile/', profileRoutes);
