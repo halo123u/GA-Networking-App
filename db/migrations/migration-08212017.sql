@@ -16,14 +16,15 @@ CREATE TABLE IF NOT EXISTS profile (
     cohort VARCHAR(255),
     interest VARCHAR(255),
     location VARCHAR(50),
-    bio VARCHAR(140),
+    bio VARCHAR(250),
     picture_url VARCHAR(255),
     user_id INT REFERENCES users(id) NOT NULL
 );
 
  CREATE TABLE IF NOT EXISTS messages (
      id SERIAL PRIMARY KEY,
-     name_from VARCHAR(255),
+     sender_id INT REFERENCES users(id) NOT NULL,
+     recipient_id INT REFERENCES users(id) NOT NULL,
      time_stamp VARCHAR(255),
      content VARCHAR(400)
 ); 
