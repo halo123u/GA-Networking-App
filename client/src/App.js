@@ -42,7 +42,7 @@ handleLoginSubmit = (e, username, password) => {
     user: res.data.user,
     currentPage: 'home'
     })
-  // 
+  Router.props.history.push('/profile')
   }).catch(err => console.log(err))
 }  
 
