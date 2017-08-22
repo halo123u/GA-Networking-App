@@ -15,8 +15,9 @@ constructor(props) {
 }
 
 componentDidMount() {
+    this.setState({userInfo: this.props.data})
     if(this.state.userInfo !== null){
-        axios.get(`/messages/receive/${this.props.data.id}`)
+        axios.get(`/messages/received/${this.state.userInfo.id}`)
         .then(res => {
             console.log(res)
             this.setState ({
