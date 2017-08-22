@@ -21,7 +21,8 @@ class App extends Component {
         this.state = {
           auth: false,
           user: null,
-          currentPage: '/'
+          currentPage: '/',
+          profileFormInfo: null
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
