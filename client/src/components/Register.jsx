@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Redirect } from 'react-router-dom';
+
 class Register extends Component{
     constructor(props){
         super(props);
@@ -8,11 +10,23 @@ class Register extends Component{
             password: '',
             email: '',
             firstName: '',
-            lastName: ''
+            lastName: '',
+            redirect: false
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
 
+    }
+
+    componentWillMount() {
+        console.log('Checking Logged in Status')
+        if(this.props.authState){
+            console.log('logged in already')
+            this.setState({redirect: true})
+        }else{
+            console.log('not logged in')
+            this.setState({redirect: false})
+        }
     }
 
     handleInputChange(e) {
@@ -24,8 +38,10 @@ class Register extends Component{
     }
 
     render(){
+        const {redirect} = this.state;
         return(
             <div className= "register">
+                {redirect ?(<Redirect to='/profile'/>) : null}
                 <form onSubmit={(e) => this.props.submit(e, this.state.username, this.state.password, this.state.email, this.state.firstName, this.state.lastName)}>
                   <input type="text" required="true" name="username" placeholder="username" value={this.state.username} onChange={this.handleInputChange} />
                   <input type="password" required="true" name="password" placeholder="password" value={this.state.password} onChange={this.handleInputChange} />

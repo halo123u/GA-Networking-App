@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-
-
-import Login from './Login';
-import Register from './Register';
-
 import {Link} from 'react-router-dom'
 
 class Home extends Component{
