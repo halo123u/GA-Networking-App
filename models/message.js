@@ -11,8 +11,10 @@ Message.findAllSentMessages = (id) => {
 
 Message.findAllReceivedMessages = (id) => {
     return db.query(`
-        SELECT * FROM messages
-        WHERE recipient_id = $1
+    SELECT messages.id, users.first_name, users.last_name,messages.time_stamp,messages.content 
+    FROM messages 
+    JOIN users on messages.sender_id = users.id 
+    WHERE recipient_id = $1
     `, [id]);
 }
 
@@ -37,6 +39,7 @@ Message.delete = (id) => {
     return db.none(`
         DELETE FROM messages
         WHERE id = $1
+        RETURNING *
     `, [id]);
 }
 
