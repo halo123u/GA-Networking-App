@@ -80,7 +80,8 @@ logOut = () => {
   .then(res => {
     console.log(res)
     this.setState ({
-      auth: false
+      auth: false,
+      user: null
     })
   }).catch(err => console.log(err))
 }
@@ -89,7 +90,7 @@ logOut = () => {
     return (
       <Router>
         <div className="App">
-          <Header logOut={this.logout} />
+          <Header logOut={this.logOut} />
           <div className="container">
             <Route exact path="/login" render={() => <Login submit={this.handleLoginSubmit} />} />
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
