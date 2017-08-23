@@ -103,7 +103,7 @@ logOut = () => {
     this.setState ({
       auth: false,
       user: null,
-      currentPage:'/',
+      currentPage:'login',
       redirect: true
     })
   }).catch(err => console.log(err))
