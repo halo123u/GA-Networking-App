@@ -33,6 +33,7 @@ class Feed extends Component{
                 {this.state.data.map(profile => {
                     return (
                         <li className='feed-profile' key={profile.user_id}>
+                            <img src={profile.picture_url} />
                             <h2>{profile.first_name} {profile.last_name}</h2>
                             <h3>{profile.age}</h3>
                             <h3>{profile.class}</h3>
