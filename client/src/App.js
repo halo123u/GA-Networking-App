@@ -11,8 +11,9 @@ import Profile from './components/Profile';
 import ProfileForm from './components/ProfileForm';
 import ProfileEdit from './components/ProfileEdit';
 import Footer from './components/Footer';
+import NoMatch from './components/NoMatch';
 
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 
 import './App.css';
 
@@ -118,6 +119,7 @@ logOut = () => {
           <Header logOut={this.logOut} authState={this.state.auth}/>
           <div className="container">
             {redirect ? (<Redirect to={`/${currentPage}`}/>) : null}
+        <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path="/login" render={() => <Login submit={this.handleLoginSubmit} />} />
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
@@ -126,7 +128,8 @@ logOut = () => {
             <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
             <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
             <Route exact path="/inbox" render={() => <DMList authState={this.state.auth} data={this.state.user} />} />
-
+            <Route component={NoMatch} />
+        </Switch>
           </div>
           <Footer />
         </div>
