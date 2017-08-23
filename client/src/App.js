@@ -39,6 +39,7 @@ handleLoginSubmit = (e, username, password) => {
     username,
     password
   }).then(res => {
+    console.log(res.data.user)
     this.setState ({
     auth: res.data.auth,
     user: res.data.user,
