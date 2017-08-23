@@ -46,7 +46,7 @@ class Profile extends Component{
          return(
           <div className="profile-info">
             <li><p><img src={this.state.profileInfo.picture_url} /></p> </li>
-            <li>Bio:<p>{this.state.profileInfo.bio} </p></li>
+            <li>Bio: <p>{this.state.profileInfo.bio} </p></li>
             <li>Age: <p>{this.state.profileInfo.age} </p></li>
             <li>Class: <p>{this.state.profileInfo.class}</p></li>
             <li>Cohort: <p>{this.state.profileInfo.cohort} </p></li>
