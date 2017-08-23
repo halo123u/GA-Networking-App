@@ -16,13 +16,14 @@ constructor(props) {
 
 componentDidMount() {
     this.setState({userInfo: this.props.data})
-    if(this.state.userInfo !== null){
-        axios.get(`/messages/received/${this.state.userInfo.id}`)
+    if(this.state.userInfo === null){
+        console.log('getting messages')
+        axios.get(`/messages/received/${this.props.data.id}`)
         .then(res => {
-            console.log(res)
+            console.log(res.data.messages)
             this.setState ({
                 apiDataLoaded: true,
-                apiData: res.data.data,
+                apiData: res.data.messages,
             })
         }).catch(err=>{console.log(err)})
     }
