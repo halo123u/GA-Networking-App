@@ -11,6 +11,15 @@ class Profile extends Component{
             redirect: false
         }
     }
+    componentWillMount() {
+        console.log('Checking Logged in Status')
+        if(this.props.authState){
+            console.log('logged in already')
+        }else{
+            console.log('not logged in')
+        }
+    }
+
     componentDidMount() {
         console.log('Fetching profile')
         if(this.props.data !== null){
@@ -26,21 +35,6 @@ class Profile extends Component{
             console.log(this.props.data)
         } else {
             console.log('Profile not loaded')
-            this.setState({
-                redirect: true
-            })
-        }
-    }
-
-    componentWillMount() {
-        console.log('Checking Logged in Status')
-        if(this.props.authState){
-            console.log('logged in already')
-            this.setState({
-                redirect: false
-            })
-        }else{
-            console.log('not logged in')
             this.setState({
                 redirect: true
             })

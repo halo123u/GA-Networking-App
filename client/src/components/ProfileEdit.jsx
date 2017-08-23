@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class ProfileEdit extends Component {
@@ -15,16 +16,26 @@ class ProfileEdit extends Component {
             bio: '',
             piture_url: '',
             user_id: null,
+            redirect: false
+        }
+    }
+    componentWillMount() {
+        console.log('Checking Logged in Status')
+        if(this.props.authState){
+            console.log('logged in already')
+        }else{
+            console.log('not logged in')
         }
     }
 
     componentDidMount() {
-        console.log('mounted')
-        if(this.props.data !== undefined){
+        console.log('edit profile mounted')
+        if(this.props.data !== null){
             console.log(this.props.data)
             this.setState({
                 userInfo: this.props.data,
-                user_id: this.props.data.id
+                user_id: this.props.data.id,
+                redirect: false
             })
         axios.get(`/profile/${this.props.data.id}`)
         .then((res) => {
@@ -36,6 +47,9 @@ class ProfileEdit extends Component {
         }).catch(err => console.log(err));
         }else{
             console.log('Profile not loaded')
+            this.setState({
+                redirect: true
+            })
         }
     }
     handleInputChange = (e) => {
@@ -47,8 +61,10 @@ class ProfileEdit extends Component {
     }
     
     render(){
+        const {redirect} = this.state
         return(
             <div className="edit-form">
+                {redirect ?(<Redirect to='/login'/>) : null}
                 <h1>Edit Form</h1>
                 <form onSubmit={(e) => this.props.submit(e, this.state.age, this.state.class_name, this.state.cohort, this.state.interest, this.state.location, this.state.bio, this.state.picture_url, this.state.user_id)}>
                   <input type="number" required="true" name="age" placeholder="age" value={this.state.age} onChange={this.handleInputChange} />
