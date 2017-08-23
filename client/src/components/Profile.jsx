@@ -58,6 +58,24 @@ class Profile extends Component{
             return <p className="loading">Loading...</p>
         }
     }
+
+    renderProfile(){
+        if(this.state.profileInfo) {
+         return(
+          <div className="profile-info">
+            <li><p><img src={this.state.profileInfo.picture_url} /></p> </li>
+            <li><p>{this.state.profileInfo.bio} </p></li>
+            <li><p>{this.state.profileInfo.age} </p></li>
+            <li><p>{this.state.profileInfo.class}</p></li>
+            <li><p>{this.state.profileInfo.cohort} </p></li>
+            <li><p>{this.state.profileInfo.interest} </p></li>
+            <li><p>{this.state.profileInfo.location} </p></li>
+          </div>
+         )
+        } else {
+            return <p> className="loading">Loading...</p>
+        }
+    }
     
     render(){
         const {redirect} = this.state;
