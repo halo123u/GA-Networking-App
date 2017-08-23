@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { Redirect } from 'react-router-dom';
 import Message from './Message';
 
 class DMList extends Component {
@@ -10,24 +10,42 @@ constructor(props) {
      this.state= {
         apiDataLoaded: false,
         apiData: null,
-        userInfo: props.data
+        userInfo: null,
+        redirect: false
      }
 }
-
-componentDidMount() {
-    
-    if(this.state.userInfo !== null){
-        console.log('getting messages')
-        axios.get(`/messages/received/${this.props.data.id}`)
-        .then(res => {
-            console.log(res.data.messages)
-            this.setState ({
-                apiDataLoaded: true,
-                apiData: res.data.messages,
-            })
-        }).catch(err=>{console.log(err)})
+    componentWillMount() {
+        console.log('Checking Logged in Status')
+        if(this.props.authState){
+            console.log('logged in already')
+        }else{
+            console.log('not logged in')
+        }
     }
-}
+
+    componentDidMount() {
+        this.setState({userInfo: this.props.data})
+        if(this.props.data !== null){
+            this.setState({
+                redirect: false
+            })
+            console.log('getting messages')
+            axios.get(`/messages/received/${this.props.data.id}`)
+            .then(res => {
+                console.log(res.data.messages)
+                this.setState ({
+                    apiDataLoaded: true,
+                    apiData: res.data.messages,
+                    redirect: false
+                })
+            }).catch(err=>{console.log(err)})
+        }else{
+            console.log("messages not loaded")
+            this.setState({
+                redirect: true
+            })
+        }
+    }
 
 deleteMessage=(id)=>{
     
@@ -53,8 +71,10 @@ renderMessages() {
 }
 
     render(){
+        const {redirect} = this.state;
         return (
        <div className="Dm-list">
+           {redirect ?(<Redirect to='/profile'/>) : null}
            {this.renderMessages()}
        </div>
         )

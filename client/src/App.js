@@ -125,7 +125,7 @@ logOut = () => {
             <Route exact path="/profile" render={() => <Profile authState={this.state.auth} data={this.state.user}/>} />
             <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
             <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
-            <Route exact path="/inbox" render={() => <DMList data={this.state.user} />} />
+            <Route exact path="/inbox" render={() => <DMList authState={this.state.auth} data={this.state.user} />} />
 
           </div>
           <Footer />
