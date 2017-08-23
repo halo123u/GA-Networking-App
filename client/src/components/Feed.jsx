@@ -49,9 +49,9 @@ class Feed extends Component{
                         <li className='feed-profile' key={profile.user_id}>
                             <img src={profile.picture_url} />
                             <h2>{profile.first_name} {profile.last_name}</h2>
-                            <h3>{profile.age}</h3>
-                            <h3>{profile.class}</h3>
-                            <p>{profile.bio}</p>
+                            <h2>Age:</h2> <h3>{profile.age}</h3>
+                            <h2>Class:</h2> <h3>{profile.class}</h3>
+                            <h2>Bio:</h2> <p>{profile.bio}</p>
                             <button>Send Message</button>
                         </li>    
                     )
