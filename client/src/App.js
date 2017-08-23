@@ -120,7 +120,7 @@ logOut = () => {
             {redirect ? (<Redirect to={`/${currentPage}`}/>) : null}
             <Route exact path='/' component={Home} />
             <Route exact path="/login" render={() => <Login submit={this.handleLoginSubmit} />} />
-            <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
+            <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} authState={this.state.auth}/>} />
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
