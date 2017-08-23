@@ -121,11 +121,11 @@ logOut = () => {
             <Route exact path='/' component={Home} />
             <Route exact path="/login" render={() => <Login submit={this.handleLoginSubmit} />} />
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} authState={this.state.auth}/>} />
-            <Route exact path="/feed" component={Feed} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
-            <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
-            <Route exact path="/inbox" render={() => <DMList data={this.state.user} />} />
+            <Route exact path="/feed" render={()=><Feed authState={this.state.auth}/>} />
+            <Route exact path="/profile" render={()=><Profile authState={this.state.auth}/>} />
+            <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit} authState={this.state.auth}/>} />
+            <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit} authState={this.state.auth}/>}/>
+            <Route exact path="/inbox" render={() => <DMList data={this.state.user} authState={this.state.auth}/>} />
           </div>
           <Footer />
         </div>
