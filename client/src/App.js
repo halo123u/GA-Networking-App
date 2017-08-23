@@ -115,7 +115,7 @@ logOut = () => {
     return (
       <Router>
         <div className="App">
-          <Header logOut={this.logOut} />
+          <Header logOut={this.logOut} authState={this.state.auth}/>
           <div className="container">
             {redirect ? (<Redirect to={`/${currentPage}`}/>) : null}
             <Route exact path='/' component={Home} />
