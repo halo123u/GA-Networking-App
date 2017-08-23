@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class Feed extends Component{
@@ -8,24 +8,38 @@ class Feed extends Component{
         this.state = {
             data: null,
             dataLoaded: false,
+            userInfo: null,
+            redirect: false
         }
       this.renderFeed = this.renderFeed.bind(this);  
     }
 
+    componentWillMount() {
+        console.log('Checking Logged in Status')
+        if(this.props.authState){
+            console.log('logged in already')
+        }else{
+            console.log('not logged in')
+        }
+    }
+
     componentDidMount() {
         this.setState({userInfo: this.props.data})
-        if (this.state.userInfo !== null) {
+        if (this.props.data !== null) {
+            this.setState({redirect: false})
             axios.get('/profile/feed').then(res => {
                 this.setState({
                     data: res.data,
                     dataLoaded: true,
                 })
             }).catch(err=> {console.log(err)});
+        }else{
+            console.log('feed not loaded yet')
+            this.setState({redirect: true})
         }
     }
 
     renderFeed() {
-        console.log(this.state.data);
         if (this.state.dataLoaded) {
             return (
             <div className='feed-container'>    
@@ -63,9 +77,11 @@ class Feed extends Component{
 
 
     render(){
+        const {redirect} = this.state;
         return(
            <div className='feed-container'> 
             <h1>Feed</h1>
+            {redirect ?(<Redirect to='/profile'/>) : null}
             {this.renderFeed()}
            </div> 
         )
