@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS profile (
 INSERT INTO users
 (username , password_digest, email, first_name,last_name)
 VALUES
-('halo4', 'halo4', 'something4','oswaldo', 'almazo'),
+('halo4', '$2a$10$9a00F2FMjMN85t2toteFzu3grrR1aKpF6sEv3O1tIVyEcuKw5qrC.', 'something4','oswaldo', 'almazo'),
 ('halo1', 'halo1', 'something1','oswaldo2', 'almazo2'),
 ('halo2', 'halo2', 'something2','oswaldo3', 'almazo3'),
 ('halo3', 'halo3', 'something3','oswaldo4', 'almazo4'),
