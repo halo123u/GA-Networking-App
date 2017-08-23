@@ -28,7 +28,8 @@ class Feed extends Component{
         console.log(this.state.data);
         if (this.state.dataLoaded) {
             return (
-              <ul className='feed-container'>  
+            <div className='feed-container'>    
+              <ul className='feed'>  
                 {this.state.data.map(profile => {
                     return (
                         <li className='feed-profile' key={profile.user_id}>
@@ -36,10 +37,12 @@ class Feed extends Component{
                             <h3>{profile.age}</h3>
                             <h3>{profile.class}</h3>
                             <p>{profile.bio}</p>
+                            <button>Send Message</button>
                         </li>    
                     )
                 })}
             </ul>
+           </div> 
             )
         }
     }
