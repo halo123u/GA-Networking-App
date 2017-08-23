@@ -89,7 +89,7 @@ logOut = () => {
     return (
       <Router>
         <div className="App">
-          <Header logOut={this.props.logout} />
+          <Header logOut={this.logout} />
           <div className="container">
             <Route exact path="/login" render={() => <Login submit={this.handleLoginSubmit} />} />
             <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
