@@ -10,13 +10,13 @@ constructor(props) {
      this.state= {
         apiDataLoaded: false,
         apiData: null,
-        userInfo: null
+        userInfo: props.data
      }
 }
 
 componentDidMount() {
-    this.setState({userInfo: this.props.data})
-    if(this.state.userInfo === null){
+    
+    if(this.state.userInfo !== null){
         console.log('getting messages')
         axios.get(`/messages/received/${this.props.data.id}`)
         .then(res => {
@@ -29,11 +29,24 @@ componentDidMount() {
     }
 }
 
+deleteMessage=(id)=>{
+    
+    
+    let currentMessages = this.state.apiData;
+    currentMessages = currentMessages.filter(mssg=>{
+            return mssg.id !== id
+        });
+    this.setState({
+        apiData: currentMessages
+    });
+    axios.delete(`/messages/${id}`);
+}
+
 renderMessages() {
     if (this.state.apiDataLoaded) {
         return this.state.apiData.map(messages => {
             return (
-                <Message key={messages.id} messages={messages} />
+                <Message key={messages.id} delete={this.deleteMessage} messages={messages} />
             );
         });
     } else return <p>Loading...</p>

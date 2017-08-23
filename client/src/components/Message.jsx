@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
 
 
-class Message extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
+const Message =(props)=> {    
+    return (
+      <div className= "message-container">
+          <p>{props.messages.first_name} {props.messages.last_name}</p>
+          <p>{props.messages.sender_id}</p>
+          <p>{props.messages.time_stamp} </p>
+          <p>{props.messages.content}</p>
+          <p onClick={()=>props.delete(props.messages.id)}>DELETE</p> 
+      </div>
 
-      };
+      );
 
     }
-
-render() {
-   return (
-     <div className= "message-container">
-        {/* <p>{props.name_from}</p>
-        <p>{props.time_stamp} </p>
-        <p>{props.content}</p> */}
-          {/* <Link to={#}/> */}
-     </div>
-
-     );
-
-  }
-
-}
 
 
 export default Message;

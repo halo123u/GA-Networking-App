@@ -36,7 +36,7 @@ const messageController = {
 
     deleteMessage: (req, res) => {
         Message.delete(req.params.id).then(message=>{
-            res.json({message});
+            res.json(message);
         }).catch(err=>{
             console.log(err);
         })
