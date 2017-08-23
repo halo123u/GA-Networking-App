@@ -18,12 +18,12 @@ const Header = (props) => {
                 <li style={props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/'>Home</Link></li>
                 <li style={props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/login'>Login</Link></li>
                 <li style={!props.authState ? styles.hideNavItem : styles.showNavItem} onClick={props.logOut}><a href="#">Log Out</a></li>
-                <li><Link to='/register'>Register</Link></li>
-                <li><Link to='/feed'>Feed</Link></li>
-                <li><Link to='/profile'>Profile</Link></li>
-                <li><Link to='/profileForm'>Profile Form</Link></li>
-                <li><Link to='/profile/edit'> Edit</Link></li>
-                <li><Link to='/inbox'>DMs</Link></li>
+                <li style={props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/register'>Register</Link></li>
+                <li style={!props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/feed'>Feed</Link></li>
+                <li style={!props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/profile'>Profile</Link></li>
+                <li style={props.authState ? styles.hideNavItem : styles.hideNavItem}><Link to='/profileForm'>Profile Form</Link></li>
+                <li style={!props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/profile/edit'> Edit</Link></li>
+                <li style={!props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/inbox'>DMs</Link></li>
             </nav>
         </header>
     )
