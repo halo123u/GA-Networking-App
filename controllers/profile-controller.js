@@ -45,7 +45,8 @@ const profileController = {
     },
     getAllProfiles: (req,res)=>{
         Profile.getAll().then(data=>{
-            console.log(data)
+            console.log(data);
+            res.json(data);
         }).catch(err=>{
             console.log(err);
         })
