@@ -145,7 +145,7 @@ div.mdl-textfield input{
     width: auto;
     margin: 0 auto;
 }
-.login-page, .register{
+.login-page, .register-page{
    background-color: lightblue;
     /* position: absolute; */
     border-radius: 30px;

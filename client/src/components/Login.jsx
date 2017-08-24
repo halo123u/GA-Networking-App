@@ -30,11 +30,11 @@ class Login extends Component{
                 <form onSubmit={(e) => this.props.submit(e, this.state.username, this.state.password)}>
                     <div className="mdl-card__supporting-text">
                         <div className="mdl-textfield mdl-js-textfield">
-                            <input className="mdl-textfield__input" id="username" type="text" required="true" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
+                            <input className="mdl-textfield__input" id="username" type="text" required="true" name="username" value={this.state.username} onChange={this.handleInputChange} />
                             <label className="mdl-textfield__label" htmlFor="username">Username...</label>
                         </div>
                         <div className="mdl-textfield mdl-js-textfield">
-                            <input className="mdl-textfield__input" id="password" type="password" required="true" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
+                            <input className="mdl-textfield__input" id="password" type="password" required="true" name="password" value={this.state.password} onChange={this.handleInputChange} />
                             <label className="mdl-textfield__label" htmlFor="password">Password...</label>
                         </div>
                     </div>
