@@ -78,7 +78,7 @@ class Profile extends Component{
                 {redirect ?(<Redirect to='/login'/>) : null}
                 <h1 className="pageTitle">Profile</h1>
             <ul>
-            <li> {this.renderProfile()} </li> 
+                <li> {this.renderProfile()} </li> 
             </ul>
             </div>
         )
