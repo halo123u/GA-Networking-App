@@ -99,7 +99,9 @@ renderMessages() {
             </div>
 
         )
-    } else return <p>Loading...</p>
+    } else {
+        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    }
 }
 
     render(){
