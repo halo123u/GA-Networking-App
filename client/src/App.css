@@ -157,7 +157,7 @@ div.mdl-card__supporting-text ul {
 }
 .login-page{
     background-color: lightblue;
-    position: absolute;
+    /* position: absolute; */
     border-radius: 30px;
     top:28%;
     right: 30%;
@@ -231,3 +231,50 @@ div.mdl-card__supporting-text ul {
     left: -1%;
     /* display: flex; */ 
 }
+/* Edit Pofile */
+#url{
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}
+#age{
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}
+#class-name{
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}
+#cohort{
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}
+#interest{
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}
+#location{
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}
+#bio{
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}
+#enter{
+    height: 30px;
+    width: 100px;
+    display: flex;
+    bottom: -4%;
+    right: 30%;
+}
+.edit-form{
+    height: 100vh;
+}
+
