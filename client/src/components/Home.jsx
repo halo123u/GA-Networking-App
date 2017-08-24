@@ -12,7 +12,7 @@ class Home extends Component{
     
     render(){
         return(
-            <div className="appHome mdl-card mdl-shadow--2dp">
+            <div className="appHome mdl-card mdl-shadow--8dp">
                 <div className="mdl-card__title">
                     <h2 className="mdl-card__title-text">GA Networking App</h2>
                 </div>
