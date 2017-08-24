@@ -148,37 +148,12 @@ div.mdl-textfield input{
     width: auto;
     margin: 0 auto;
 }
-.login-page, .register-page, .edit-form.mdl-card{
-   background-color: #ffffff;
-    border-radius: 5px;
-    width: 90vw;
-    margin: 0 auto;
-    max-height: 80vh;
-    overflow: auto;
-}
-/* 
-Message Form */
-.message-form{
-    height: 100vh;
-    width: 50vh;
-
-}
-#hello{
-    background-color:whitesmoke;
-    position: absolute;
-    left: 1%;
-    bottom: 22%;
-    height: 36px;
-    width: 261px;
-    border: 1px solid lightblue;
-    
-}
 #send{
     background-color: lightblue;
-    position: absolute;
-    bottom: 23%;
-    right: 1%;
-    border-radius: 100px;
+    /* position: absolute; */
+    border-radius: 30px;
+    width: 90vw;
+    margin: 0 auto;
 }
 /* 
 Message Form */
