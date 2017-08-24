@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -44,18 +44,30 @@ class Profile extends Component{
     renderProfile(){
         if(this.state.profileInfo) {
          return(
-          <div className="profile-info">
-            <li><p><img src={this.state.profileInfo.picture_url} /></p> </li>
-            <li>Bio: <p>{this.state.profileInfo.bio} </p></li>
-            <li>Age: <p>{this.state.profileInfo.age} </p></li>
-            <li>Class: <p>{this.state.profileInfo.class}</p></li>
-            <li>Cohort: <p>{this.state.profileInfo.cohort} </p></li>
-            <li>Interest: <p>{this.state.profileInfo.interest} </p></li>
-            <li>Location: <p>{this.state.profileInfo.location} </p></li>
-          </div>
+            <div className="profile-card-square mdl-card mdl-shadow--8dp">
+                <div className="mdl-card__title mdl-card--expand" style={{background: `url(${this.state.profileInfo.picture_url}) center / cover no-repeat`}}>
+                    <h2 className="mdl-card__title-text profileName">
+                        {this.props.data.first_name} &nbsp;{this.props.data.last_name}
+                    </h2>
+                </div>
+                <div className="mdl-card__supporting-text">
+                    <h4>About Me </h4>
+                    {this.state.profileInfo.bio}
+                    <ul>
+                        <li> <p>Age: {this.state.profileInfo.age}</p> </li>
+                        <li> <p>Location: {this.state.profileInfo.location}</p> </li>
+                        <li> <p>Class: {this.state.profileInfo.class}</p> </li>
+                        <li> <p>Cohort: {this.state.profileInfo.cohort}</p> </li>
+                        <li> <p>Interest's: {this.state.profileInfo.interest}</p> </li>
+                    </ul>
+                </div>
+                <div className="mdl-card__actions mdl-card--border">
+                    <Link className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" to='/profile/edit'>Edit Profile</Link>
+                </div>
+            </div>
          )
         } else {
-            return <p> className="loading">Loading...</p>
+            return <div id="p2" className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
         }
     }
     
@@ -64,9 +76,9 @@ class Profile extends Component{
         return(
             <div className="Profile">
                 {redirect ?(<Redirect to='/login'/>) : null}
-                <h1>Profile</h1>
+                <h1 className="pageTitle">Profile</h1>
             <ul>
-            <li> {this.renderProfile()} </li> 
+                <li> {this.renderProfile()} </li> 
             </ul>
             </div>
         )

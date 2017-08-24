@@ -42,11 +42,11 @@ VALUES
 ('halo5', 'halo5', 'something5','oswaldo5', 'almazo5');
 
 INSERT INTO profile
-(age, class, cohort,  interest, location, bio, user_id)
+(age, class, cohort,  interest, location, bio, picture_url, user_id)
 VALUES
-(28, 'WDI', 'Delorean', 'Back-end development', 'New York City', 'I have a computer science degree from X university and enrolled in WDI to sharpen my skills. Looking fo',1),
-(24, 'UXDI', 'twin peaks', 'client interaction', 'New York City', 'Looking for web developer to help make a networking app. I have extensive design background special',2),
-(30, 'IOS Dev','some name', 'Games', 'New York City', 'Want to make a sidescroll shooter game. Need UX designer to help figure out layout of elements on the screen.',3);
+(28, 'WDI', 'Delorean', 'Back-end development', 'New York City', 'I have a computer science degree from X university and enrolled in WDI to sharpen my skills. Looking fo','http://via.placeholder.com/300', 1),
+(24, 'UXDI', 'twin peaks', 'client interaction', 'New York City', 'Looking for web developer to help make a networking app. I have extensive design background special','http://via.placeholder.com/300', 2),
+(30, 'IOS Dev','some name', 'Games', 'New York City', 'Want to make a sidescroll shooter game. Need UX designer to help figure out layout of elements on the screen.','http://via.placeholder.com/300', 3);
  
 INSERT INTO messages
 (sender_id, recipient_id, content, time_stamp)

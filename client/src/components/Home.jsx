@@ -30,19 +30,6 @@ class Home extends Component{
                     </Link>
                 </div>
             </div>
-            // <div className="appHome">
-            //     <h1>
-            //         GA Tinder
-            //     </h1>
-            //     <main>
-            //         <div className="authInfo">
-            //             <ul>
-            //                 <li><button type="button"><Link to='/login'>Login</Link></button></li>
-            //                 <li><button type="button"><</button></li>
-            //             </ul>
-            //         </div>
-            //     </main>
-            // </div>
         )
     }
 }

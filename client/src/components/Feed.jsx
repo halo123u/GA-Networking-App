@@ -49,46 +49,45 @@ class Feed extends Component{
         console.log(this.state.data);
         if (this.state.dataLoaded) {
             return (
-            <div className='feed-container'> 
-                {this.state.redirect ?(<Redirect to={`/sendMessage`} />) : null}   
               <ul className='feed'>  
-                {this.state.data.map(profile => {
+                {this.state.redirect ?(<Redirect to={`/sendMessage`} />) : null}   
+                {this.state.data.map((profile, i) => {
                     return (
-                        <li className='feed-profile' key={profile.user_id}>
-                            <img src={profile.picture_url} />
-                            <h2>{profile.first_name} {profile.last_name}</h2>
-                            <h2>Age:</h2> <h3>{profile.age}</h3>
-                            <h2>Class:</h2> <h3>{profile.class}</h3>
-                            <h2>Bio:</h2> <p>{profile.bio}</p>
-                            <button onClick={(()=>this.sendMessage(profile.user_id))}>Send Message</button>
-                        </li>    
+                    <div className="profile-card-square mdl-card mdl-shadow--8dp" key={i}>
+                        <div className="mdl-card__title mdl-card--expand" style={{background: `url(${profile.picture_url}) center / cover no-repeat`}}>
+                            <h2 className="mdl-card__title-text profileName">
+                                {profile.first_name} &nbsp;{profile.last_name}
+                            </h2>
+                        </div>
+                        <div className="mdl-card__supporting-text">
+                            <h4>About {profile.first_name} </h4>
+                            {profile.bio}
+                            <ul>
+                                <li> <p>Age: {profile.age}</p> </li>
+                                <li> <p>Location: {profile.location}</p> </li>
+                                <li> <p>Class: {profile.class}</p> </li>
+                                <li> <p>Cohort: {profile.cohort}</p> </li>
+                                <li> <p>Interest's: {profile.interest}</p> </li>
+                            </ul>
+                        </div>
+                        <div className="mdl-card__actions mdl-card--border">
+                        <button onClick={(()=>this.sendMessage(profile.user_id))} className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Send Message</button>
+                        </div>
+                    </div>
                     )
                 })}
             </ul>
-           </div> 
             )
+        } else {
+            return <div id="p2" className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
         }
     }
-    
-    // handleEventChange(e) {
-    //     this.setState ({
-    //         age: '',
-    //         class: '',
-    //         cohort: '',
-    //         interest: '',
-    //         location: '',
-    //         bio: '',
-    //         picture_url: ''
-
-    //     })
-    // }
-
 
     render(){
         const {redirect} = this.state;
         return(
-           <div className='feed-container'> 
-            <h1>Feed</h1>
+           <div> 
+            <h1 className="pageTitle">Feed</h1>
             {redirect ?(<Redirect to='/profile'/>) : null}
             {this.renderFeed()}
            </div> 
