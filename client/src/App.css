@@ -138,3 +138,32 @@ div.mdl-card__supporting-text ul {
 
 */
 
+#username{
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+}
+#password{
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+
+}
+#login{
+    text-align: center;
+    padding: 15px;
+    margin: 15px;
+}
+.login-page{
+    background-color: pink;
+    position: absolute;
+    border-radius: 30px;
+    top:28%;
+    right: 30%;
+    width: 520px;
+    height: 270px;
+}
+.register{
+    display: flex;
+    flex-direction: row;
+}
