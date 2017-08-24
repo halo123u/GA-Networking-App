@@ -9,7 +9,7 @@ class Events extends Component {
         }
     }
     componentDidMount() {
-        axios.get(`https://api.meetup.com/2/open_events?zip=10010&and_text=False&offset=0&city=New+York&format=json&limited_events=False&topic=technology&state=ny&photo-host=public&page=15&radius=2&desc=False&status=upcoming&sig_id=194427674&sig=d42a130a9aa999fefef47099dd667b44183feae3&sign=true$key=${process.env.API_KEY}`)
+        axios.get(`https://api.meetup.com/2/open_events?zip=10010&and_text=False&offset=0&city=New+York&format=json&limited_events=False&topic=technology&state=ny&photo-host=public&page=15&radius=2&desc=False&status=upcoming&sig_id=194427674&sig=d42a130a9aa999fefef47099dd667b44183feae3&sign=true&key=${process.env.API_KEY}`)
         .then(res => {
             console.log(res.data)
             this.setState({
@@ -30,13 +30,13 @@ class Events extends Component {
             <div className='events-container'>
                 <ul className='event-info'>
                   {this.state.eventInfo.map(event => {
-                      return (
-                    <li>{event.name}</li>
-                    <li>{event.group.name}</li>
-                    <li>{event.venue.name}</li>
-                    <li>{event.venue.address_1}</li>
-                    <li>{event.event_url}</li>
-                    <li>{event.description}</li>
+                    return (
+                        <li>{event.name}</li>
+                        <li>{event.group.name}</li>
+                        <li>{event.venue.name}</li>
+                        <li>{event.venue.address_1}</li>
+                        <li>{event.event_url}</li>
+                        <li>{event.description}</li>
                     )
                   })}  
                 </ul>
