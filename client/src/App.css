@@ -68,6 +68,9 @@ li {
 body{
     font-family: 'Raleway', sans-serif;
 }
+main.mdl-layout__content {
+    margin-top: 2em;
+}
 footer{
     position: absolute;
     bottom: 1em;
@@ -77,7 +80,7 @@ footer{
 .appHome.mdl-card {
     width: 90vw;
     margin: 0 auto;
-    margin-top: 3em;
+    margin-top: 2em;
 }
 .appHome > .mdl-card__title {
   color: black;

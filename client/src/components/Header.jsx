@@ -17,16 +17,18 @@ const Header = (props) => {
             <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
                 <header className="mdl-layout__header">
                     <div className="mdl-layout__header-row">
-                    {/* <!-- Title --> */}
                     <span className="mdl-layout-title">GA Networking</span>
-                    {/* <!-- Add spacer, to align navigation to the right --> */}
                     <div className="mdl-layout-spacer"></div>
-                    {/* <!-- Navigation. We hide it in small screens. --> */}
                     <nav className="mdl-navigation mdl-layout--large-screen-only">
-                        <a className="mdl-navigation__link" href="">Link</a>
-                        <a className="mdl-navigation__link" href="">Link</a>
-                        <a className="mdl-navigation__link" href="">Link</a>
-                        <a className="mdl-navigation__link" href="">Link</a>
+                        <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
+                        <Link className="mdl-navigation__link"  style={!props.authState ? styles.hideNavItem : styles.showNavItem} onClick={props.logOut} to='/'>Log Out</Link>
+                        <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
+                        <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
+                        <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
+                        <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
+                        <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
+                        <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
+                        <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
                     </nav>
                     </div>
                 </header>
@@ -43,9 +45,9 @@ const Header = (props) => {
                     <div className="page-content"></div>
                 </main>
             </div>
-                <li style={props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/'>Home</Link></li>
+                <li></li>
                 <li style={props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/login'>Login</Link></li>
-                <li style={!props.authState ? styles.hideNavItem : styles.showNavItem} onClick={props.logOut}><a href="#">Log Out</a></li>
+                <li><a href="#">Log Out</a></li>
                 <li style={props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/register'>Register</Link></li>
                 <li style={!props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/feed'>Feed</Link></li>
                 <li style={!props.authState ? styles.hideNavItem : styles.showNavItem}><Link to='/profile'>Profile</Link></li>
