@@ -33,7 +33,7 @@ const Header = (props) => {
                     </nav>
                     </div>
                 </header>
-                <div className="mdl-layout__drawer mdl-layout--small-screen-only">
+                <div className="mdl-layout__drawer">
                     <span className="mdl-layout-title">GA Networking</span>
                     <nav className="mdl-navigation">
                      <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
