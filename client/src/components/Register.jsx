@@ -54,8 +54,11 @@ class Register extends Component{
                   <label className="mdl-textfield__label" for="user-reg">Username..</label>
                   <input className="mdl-textfield__input" id="password-reg" type="password" required="true" name="password" placeholder="password" value={this.state.password} onChange={this.handleInputChange} />
                   <label className="mdl-textfield__label" for="password-reg">Password...</label>
-                  <input className="submit" id="submit" type="submit" value="Register!" onClick={this.handleSubmit} />
+                  <input className="submit" id="submit" type="submit" value="Submit!" onClick={this.handleSubmit} />
                   {/* <label className="mdl-textfield__label" for="submit">Submit...</label> */}
+                  <div className="title">
+                     <h1>Register</h1>
+                  </div>
                 </div>
                 </form>
                 </div>
