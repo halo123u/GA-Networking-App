@@ -13,6 +13,7 @@ import ProfileEdit from './components/ProfileEdit';
 import Footer from './components/Footer';
 import NoMatch from './components/NoMatch';
 import MessageForm from './components/MessageForm';
+import Events from './components/Events';
 
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 
