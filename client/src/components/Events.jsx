@@ -6,20 +6,23 @@ class Events extends Component {
         super();
         this.state = {
             eventInfo: null,
+            eventInfoLoaded: false,
         }
     }
     componentDidMount() {
-        axios.get(`https://api.meetup.com/2/open_events?&sign=true&photo-host=public&zip=10010&country=United States&topic=technology&city=New York&state=NY&radius=2&page=15&key=${process.env.API_KEY}`)
+        axios.get('/events')
         .then(res => {
             console.log(res.data)
             this.setState({
                 eventInfo: res.data,
+                eventInfoLoaded: true,
             })
         })
     }
 
 
     render() {
+      if(this.state.eventInfoLoaded) {  
         return (
             <div className='events-container'>
                 <ul className='event-info'>
@@ -38,6 +41,9 @@ class Events extends Component {
                 </ul>
             </div>    
         )
+      } else {
+          return <div className='loading'><h2>Data Not Loading...</h2></div>
+      }
     }
 }
 
