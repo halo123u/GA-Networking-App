@@ -148,15 +148,14 @@ div.mdl-textfield input{
     width: auto;
     margin: 0 auto;
 }
-#send{
-    background-color: lightblue;
+.login-page, .register{
+   background-color: lightblue;
     /* position: absolute; */
     border-radius: 30px;
     width: 90vw;
     margin: 0 auto;
 }
-/* 
-Message Form */
+/*Message Form */
 .message-form{
     height: 100vh;
     width: 50vh;
@@ -179,129 +178,3 @@ Message Form */
     right: 1%;
     border-radius: 100px;
 }
-.chat{
-    background-color: lightblue;
-    border: 1px solid white;
-    height: 40px;
-    display: flex;
-    flex-direction: reverse;
-}
-/* Event-page */
-.events-container{
-    width: 90vw;
-    height: 100vh;
-}
-h2 {
-   font-size: 20px;
-   /* display: flex; */
-}
-h4{
- font-size: 15px;
- display: flex;
-}
-p{
-    font-size: 10px;
-}
-.mdl-textfield__label-location{
-    background-color: pink;
-}
-
-
-.register{
-    background-color: lightblue;
-    border-radius: 15px;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    top:30%;
-    right: 30%;
-    width: 550px;
-    height: 400px;
-}
-.title {
-    border: 1px lightblue solid;
-    background-color: lightblue;
-    color: white;
-    border-radius: 10px;
-    width: 530px;
-    height: 90px;
-    padding: 2px;
-    margin: 15px;
-    position: absolute;
-    justify-content: center;
-    top: -30%;
-    left: -1%;
-    /* display: flex; */ 
-}
-/* Edit Pofile */
-#url{
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
-}
-#age{
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
-}
-#class-name{
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
-}
-#cohort{
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
-}
-#interest{
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
-}
-#location{
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
-}
-#bio{
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
-}
-#enter{
-    height: 30px;
-    width: 100px;
-    display: flex;
-    bottom: -4%;
-    right: 30%;
-}
-.edit-form{
-    height: 100vh;
-}
-/* 
-Message Form */
-.message-form{
-    height: 100vh;
-    width: 50vh;
-
-}
-#hello{
-    background-color:whitesmoke;
-    position: absolute;
-    left: 1%;
-    bottom: 22%;
-    height: 36px;
-    width: 261px;
-    border: 1px solid lightblue;
-    
-}
-#send{
-    background-color: lightblue;
-    position: absolute;
-    bottom: 23%;
-    right: 1%;
-    border-radius: 100px;
-}
-
