@@ -46,6 +46,9 @@ app.use('/profile/', profileRoutes);
 const messageRoutes = require('./routes/message-routes');
 app.use('/messages', messageRoutes);
 
+const eventRoutes = require('./routes/event-routes');
+app.use('/events', eventRoutes);
+
 app.get('*',(req,res)=>{
     res.status(400).json({
         message: 'Not found!',

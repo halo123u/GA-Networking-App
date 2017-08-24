@@ -1,7 +1,8 @@
 const Events = require('../services/events-helpers');
 
 const eventsController = {
-    getEvents: (req, res) => {
+    getAllEvents: (req, res) => {
+        console.log('this is the controller');
         res.json(res.locals.data);
     }
 }
