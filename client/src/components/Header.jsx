@@ -47,7 +47,6 @@ const Header = (props) => {
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/profile/edit'>Edit Profile</Link>
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/inbox'>DMs</Link>
                     </nav>
-                    <Footer />
                 </div>
             </div>
         </header>
