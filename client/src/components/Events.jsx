@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 class Events extends Component {
@@ -9,17 +9,11 @@ class Events extends Component {
         }
     }
     componentDidMount() {
-        axios.get(`https://api.meetup.com/2/open_events?zip=10010&and_text=False&offset=0&city=New+York&format=json&limited_events=False&topic=technology&state=ny&photo-host=public&page=15&radius=2&desc=False&status=upcoming&sig_id=194427674&sig=d42a130a9aa999fefef47099dd667b44183feae3&sign=true&key=${process.env.API_KEY}`)
+        axios.get(`https://api.meetup.com/2/open_events?&sign=true&photo-host=public&zip=10010&country=United States&topic=technology&city=New York&state=NY&radius=2&page=15&key=${process.env.API_KEY}`)
         .then(res => {
             console.log(res.data)
             this.setState({
-                eventInfo: res.data.results,
-                // eventName: res.data.results.name,
-                // groupName: res.data.results.group.name,
-                // venueName: res.data.results.venue.name,
-                // venueAddress: res.data.results.venue.address_1,
-                // eventUrl: res.data.results.event_url,
-                // description: res.data.results.description,
+                eventInfo: res.data,
             })
         })
     }
@@ -31,12 +25,14 @@ class Events extends Component {
                 <ul className='event-info'>
                   {this.state.eventInfo.map(event => {
                     return (
-                        <li>{event.name}</li>
-                        <li>{event.group.name}</li>
-                        <li>{event.venue.name}</li>
-                        <li>{event.venue.address_1}</li>
-                        <li>{event.event_url}</li>
-                        <li>{event.description}</li>
+                        <li className='event'>
+                            <h3>{event.name}</h3>
+                            <h3>{event.group.name}</h3>
+                            <h3>{event.venue.name}</h3>
+                            <h4>{event.venue.address_1}</h4>
+                            <h4>{event.event_url}</h4>
+                            <p>{event.description}</p>
+                        </li>
                     )
                   })}  
                 </ul>
