@@ -93,11 +93,11 @@ a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect {
     text-decoration: none;
 }
 button.mdl-button {
-    width: 100px;
+    width: auto;
 }
 
 
-/* 
+/* GA colors
 #fa4542 red
 
 */
