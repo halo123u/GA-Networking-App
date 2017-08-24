@@ -23,7 +23,7 @@ class MessageForm extends Component {
         e.preventDefault();   
         axios.post(`/messages/${this.props.sender.id}`,{
             recipient_id: this.props.recipient,
-            time_stamp: '10:00pm',
+            time_stamp: (Date().split(' ').slice(4, 5).join(' ')),
             content: this.state.text
 
         }).then(res=>{
