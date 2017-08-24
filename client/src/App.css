@@ -83,7 +83,7 @@ main.mdl-layout__content {
 }
 footer{
     position: absolute;
-    bottom: 1em;
+    /* bottom: 1em; */
     width: 100%;
 }
 /* Home */
@@ -114,6 +114,7 @@ button.mdl-button {
 .profile-card-square.mdl-card {
   width: 320px;
   height: 500px;
+  margin-bottom: 2em;
 }
 .profile-card-square > .mdl-card__title {
   color: black;
