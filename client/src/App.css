@@ -68,3 +68,36 @@ li {
 body{
     font-family: 'Raleway', sans-serif;
 }
+footer{
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+}
+/* Home */
+.appHome.mdl-card {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 3em;
+}
+.appHome > .mdl-card__title {
+  color: black;
+  height: 176px;
+  background: url('http://static-assets.generalassemb.ly/logos/generalassembly-open-graph.png') center / contain  no-repeat;
+}
+h2.mdl-card__title-text {
+    margin: 0 auto;
+    position: relative;
+    top: 1em;
+}
+a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect {
+    text-decoration: none;
+}
+button.mdl-button {
+    width: 100px;
+}
+
+
+/* 
+#fa4542 red
+
+*/

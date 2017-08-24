@@ -12,38 +12,37 @@ class Home extends Component{
     
     render(){
         return(
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">GA Networking App</h2>
+            <div className="appHome mdl-card mdl-shadow--2dp">
+                <div className="mdl-card__title">
+                    <h2 className="mdl-card__title-text">GA Networking App</h2>
                 </div>
-                <div class="mdl-card__supporting-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Mauris sagittis pellentesque lacus eleifend lacinia...
+                <div className="mdl-card__supporting-text">
+                    Start making connections today!
                 </div>
-                <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Get Started
-                    </a>
+                <div className="mdl-card__actions mdl-card--border">
+                    <Link className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" to='/login'>
+                        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">Login</button>
+                    </Link>
                 </div>
-                <div class="mdl-card__menu">
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                    <i class="material-icons">share</i>
-                    </button>
+                <div className="mdl-card__actions mdl-card--border">
+                    <Link className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" to='/register'>
+                        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">Register</button>
+                    </Link>
                 </div>
             </div>
-            <div className="appHome">
-                <h1>
-                    GA Tinder
-                </h1>
-                <main>
-                    <div className="authInfo">
-                        <ul>
-                            <li><button type="button"><Link to='/login'>Login</Link></button></li>
-                            <li><button type="button"><Link to='/register'>Register</Link></button></li>
-                        </ul>
-                    </div>
-                </main>
-            </div>
+            // <div className="appHome">
+            //     <h1>
+            //         GA Tinder
+            //     </h1>
+            //     <main>
+            //         <div className="authInfo">
+            //             <ul>
+            //                 <li><button type="button"><Link to='/login'>Login</Link></button></li>
+            //                 <li><button type="button"><</button></li>
+            //             </ul>
+            //         </div>
+            //     </main>
+            // </div>
         )
     }
 }
