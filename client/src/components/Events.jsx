@@ -10,17 +10,14 @@ class Events extends Component {
         }
     }
     componentDidMount() {
-        console.log('work dammit!');
         axios.get('/events')
         .then(res => {
-            console.log('no, seriously, bruh');
             console.log(res)
             this.setState({
-                eventInfo: res.data,
+                eventInfo: res.data.results,
                 eventInfoLoaded: true,
             })
         })
-        console.log(':(');
     }
 
 
@@ -32,12 +29,12 @@ class Events extends Component {
                   {this.state.eventInfo.map(event => {
                     return (
                         <li className='event'>
-                            <h3>{event.name}</h3>
-                            <h3>{event.group.name}</h3>
-                            <h3>{event.venue.name}</h3>
-                            <h4>{event.venue.address_1}</h4>
-                            <h4>{event.event_url}</h4>
-                            <p>{event.description}</p>
+                            <h2>Event Name:</h2> <h4>{event.name}</h4>
+                            <h2>Event Group Name:</h2> <h4>{event.group.name}</h4>
+                            {/* <h2>{event.venue.name}</h2>
+                            <h4>{event.venue.address_1}</h4> */}
+                            <h2>Event Page:</h2> <p>{event.event_url}</p>
+                            <p>Event Description: {event.description}</p>
                         </li>
                     )
                   })}  
