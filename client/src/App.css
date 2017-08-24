@@ -138,6 +138,7 @@ div.mdl-card__supporting-text ul {
 
 */
 
+/* login */
 #username{
     text-align: center;
     padding: 15px;
@@ -155,7 +156,7 @@ div.mdl-card__supporting-text ul {
     margin: 15px;
 }
 .login-page{
-    background-color: pink;
+    background-color: lightblue;
     position: absolute;
     border-radius: 30px;
     top:28%;
@@ -163,7 +164,59 @@ div.mdl-card__supporting-text ul {
     width: 520px;
     height: 270px;
 }
+/* Register-page */
+#user-reg{
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+}
+#password-reg{
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+}
+#email{
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+}
+#name{
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+}
+#last{
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+}
+#submit{
+    text-align: center;
+    color: white;
+    background-color:lightblue;
+    border-radius: 10px;
+    border: 1px white solid;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    position: absolute;
+    right: 25%;
+}
 .register{
+    background-color: lightblue;
+    border-radius: 15px;
+    position: absolute;
     display: flex;
     flex-direction: row;
+<<<<<<< HEAD
 }
+=======
+    justify-content: center;
+    top:20%;
+    right: 30%;
+    width: 550px;
+    height: 400px;
+}
+>>>>>>> add style to register page
