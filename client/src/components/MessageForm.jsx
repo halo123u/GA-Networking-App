@@ -9,7 +9,6 @@ class MessageForm extends Component {
             text: '',
         };
        this.handleInputChange = this.handleInputChange.bind(this);
-       this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
     handleInputChange(e) {
@@ -20,22 +19,26 @@ class MessageForm extends Component {
         });
     }
 
-    handleFormSubmit(e) {
-     axios
-       .post('/messages', {
-           text: this.state.text,
-       })
-       .then(res => {
-           console.log(res);
-       }).catch(err => console.log(err));
-       e.target.reset();
+    handleFormSubmit =(e) => {  
+        e.preventDefault();   
+        axios.post(`/messages/${this.props.sender.id}`,{
+            recipient_id: this.props.recipient,
+            time_stamp: '10:00pm',
+            content: this.state.text
+
+        }).then(res=>{
+            console.log(res);
+        }).catch(err=>{
+            console.log(err);
+        })
+        
     }
 
    render() {
        return (
              <div className="message-form">
               <h1>Message Form</h1>
-            <form onSubmit={(e) => this.handleFormSubmit}>
+            <form onSubmit={(e)=>this.handleFormSubmit(e)} >
               <input type="text" placeholder="Hello" name="text" value={this.state.text} onChange={this.handleInputChange} />
               <input type="submit" value="submit" />
             </form>

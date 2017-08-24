@@ -4,8 +4,10 @@ const Message = {};
 
 Message.findAllSentMessages = (id) => {
     return db.query(`
-        SELECT * FROM messages
-        WHERE sender_id = $1
+    SELECT messages.id, users.first_name, users.last_name,messages.time_stamp,messages.content 
+    FROM messages 
+    JOIN users on messages.recipient_id = users.id 
+    WHERE sender_id = $1
     `, [id]);
 }
 
