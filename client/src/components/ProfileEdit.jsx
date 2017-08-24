@@ -67,20 +67,32 @@ class ProfileEdit extends Component {
                 {redirect ?(<Redirect to='/login'/>) : null}
                 <h1>Edit Form</h1>
                 <form onSubmit={(e) => this.props.submit(e, this.state.age, this.state.class_name, this.state.cohort, this.state.interest, this.state.location, this.state.bio, this.state.picture_url, this.state.user_id)}>
-                  <input type="number" required="true" name="age" placeholder="age" value={this.state.age} onChange={this.handleInputChange} />
-                  <input type="type" required="true" name="class_name" placeholder="class name" value={this.state.class_name} onChange={this.handleInputChange} />
-                  <input type="type" required="true" name="cohort" placeholder="cohort" value={this.state.cohort} onChange={this.handleInputChange} />
-                  <input type="type" required="true" name="interest" placeholder="interest" value={this.state.interest} onChange={this.handleInputChange} />
-                  <input type="type" required="true" name="location" placeholder="location" value={this.state.location} onChange={this.handleInputChange} />
-                  <input type="type" required="true" name="bio" placeholder="bio" value={this.state.bio} onChange={this.handleInputChange} />
-                  <input type="type" required="true" name="picture_url" placeholder="picture_url" value={this.state.picture_url} onChange={this.handleInputChange} />
-                  <input type="submit" value="Submit" onClick={this.handleSubmit} />
+                <div className="mdl-textfield mdl-js-textfield">
+                  <input className="mdl-textfield__input" id="url" type="type" placeholder="Picture Url" required="true" name="picture_url" value={this.state.picture_url} onChange={this.handleInputChange} />
+                  <label className="mdl-textfield__label" for="url"></label>
+                  <input className="mdl-textfield__input"  id="age" type="number" placeholder="Age" required="true" name="age" value={this.state.age} onChange={this.handleInputChange} />
+                  <label className="mdl-textfield__label" for="age"></label>
+                  <input className="mdl-textfield__input" rows= "1" id="class-name" type="type" placeholder="Class name" required="true" name="class_name" value={this.state.class_name} onChange={this.handleInputChange} />
+                  <label class="mdl-textfield__label" for="class-name"></label>
+                  <input className="mdl-textfield__input" rows= "1" id="cohort" type="type" placeholder="Cohort" required="true" name="cohort" value={this.state.cohort} onChange={this.handleInputChange} />
+                  <label className="mdl-textfield__label" for="cohort"></label>
+                  <input className="mdl-textfield__input" rows= "1" id="interest" type="type" placeholder="Interest" required="true" name="interest" value={this.state.interest} onChange={this.handleInputChange} />
+                  <label className="mdl-textfield__label" for="interest"></label>
+                  <input className="mdl-textfield__input" rows= "1" id="location" type="type" placeholder="Location" required="true" name="location" value={this.state.location} onChange={this.handleInputChange} />
+                  <label className="mdl-textfield__label" for="location"></label>
+                  <input className="mdl-textfield__input" rows= "1" id="bio" type="type" placeholder="Bio..." required="true" name="bio" value={this.state.bio} onChange={this.handleInputChange} />
+                  <label className="mdl-textfield__label" for="bio"></label>
+                  {/* <input className="enter" type="submit" value="Submit" onClick={this.handleSubmit} /> */}
+
+                  <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="enter" type="submit" value="Submit" onClick={this.handleSubmit} >
+                      Submit
+                 </button>
+                  
+                </div>
                 </form>
             </div>
         )
     }
 }  
-
-
 
 export default ProfileEdit;
