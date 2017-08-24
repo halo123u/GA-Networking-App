@@ -10,14 +10,17 @@ class Events extends Component {
         }
     }
     componentDidMount() {
+        console.log('work dammit!');
         axios.get('/events')
         .then(res => {
-            console.log(res.data)
+            console.log('no, seriously, bruh');
+            console.log(res)
             this.setState({
                 eventInfo: res.data,
                 eventInfoLoaded: true,
             })
         })
+        console.log(':(');
     }
 
 
