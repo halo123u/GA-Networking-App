@@ -6,38 +6,44 @@ class Events extends Component {
         super();
         this.state = {
             eventInfo: null,
+            eventInfoLoaded: false,
         }
     }
     componentDidMount() {
-        axios.get(`https://api.meetup.com/2/open_events?&sign=true&photo-host=public&zip=10010&country=United States&topic=technology&city=New York&state=NY&radius=2&page=15&key=${process.env.API_KEY}`)
+        axios.get('/events')
         .then(res => {
-            console.log(res.data)
+            console.log(res)
             this.setState({
-                eventInfo: res.data,
+                eventInfo: res.data.results,
+                eventInfoLoaded: true,
             })
         })
     }
 
 
     render() {
+      if(this.state.eventInfoLoaded) {  
         return (
             <div className='events-container'>
                 <ul className='event-info'>
                   {this.state.eventInfo.map(event => {
                     return (
                         <li className='event'>
-                            <h3>{event.name}</h3>
-                            <h3>{event.group.name}</h3>
-                            <h3>{event.venue.name}</h3>
-                            <h4>{event.venue.address_1}</h4>
-                            <h4>{event.event_url}</h4>
-                            <p>{event.description}</p>
+                            <h2>Event Name:</h2> <h4>{event.name}</h4>
+                            <h2>Event Group Name:</h2> <h4>{event.group.name}</h4>
+                            {event.venue !== undefined ? <div className='venue-name'><h2>Location:</h2> <h4>{event.venue.name}</h4></div> : null}
+                            {event.venue !== undefined ? <div className='venue-address'><h2>Address:</h2> <h4>{event.venue.address_1}</h4></div> : null}
+                            <h2>Event Page:</h2> <p>{event.event_url}</p>
+                            <p>Event Description: {event.description}</p>
                         </li>
                     )
                   })}  
                 </ul>
             </div>    
         )
+      } else {
+          return <div className='loading'><h2>Data Not Loading...</h2></div>
+      }
     }
 }
 
