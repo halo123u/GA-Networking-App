@@ -39,20 +39,29 @@ class Feed extends Component{
         }
     }
 
+    sendMessage=(id)=>{
+            console.log(`sending message to ${id}`);
+            this.props.recipient(id);
+            this.setState({redirect:true});
+    }
+
     renderFeed() {
+        console.log(this.state.data);
         if (this.state.dataLoaded) {
             return (
-            <div className='feed-container'>    
+            <div className='feed-container'> 
+                {this.state.redirect ?(<Redirect to={`/sendMessage`} />) : null}   
               <ul className='feed'>  
                 {this.state.data.map(profile => {
                     return (
                         <li className='feed-profile' key={profile.user_id}>
                             <img src={profile.picture_url} />
                             <h2>{profile.first_name} {profile.last_name}</h2>
+
                             <h2>Age:</h2> <h3>{profile.age}</h3>
                             <h2>Class:</h2> <h3>{profile.class}</h3>
                             <h2>Bio:</h2> <p>{profile.bio}</p>
-                            <button>Send Message</button>
+                            <button onClick={(()=>this.sendMessage(profile.user_id))}>Send Message</button>
                         </li>    
                     )
                 })}
