@@ -61,10 +61,6 @@ nav li {
     list-style: none;
 }
 
-li {
-    list-style: none;
-}
-
 h1.pageTitle {
     font-size: 2em;
     margin-bottom: 0.5em;
@@ -83,7 +79,7 @@ main.mdl-layout__content {
 }
 footer{
     position: absolute;
-    /* bottom: 1em; */
+     bottom: 1em; 
     width: 100%;
 }
 /* Home */
@@ -141,3 +137,18 @@ div.mdl-card__supporting-text ul {
 #fa4542 red
 
 */
+
+/* login / Register */
+div.mdl-textfield input{
+    text-align: center;
+    padding: 15px;
+    width: auto;
+    margin: 0 auto;
+}
+.login-page, .register-page{
+   background-color: lightblue;
+    /* position: absolute; */
+    border-radius: 30px;
+    width: 90vw;
+    margin: 0 auto;
+}
