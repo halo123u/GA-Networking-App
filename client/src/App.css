@@ -118,6 +118,10 @@ button.mdl-button {
 h2.mdl-card__title-text.profileName {
     top: 0;
     text-transform: capitalize;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px black;
 }
 
 div.h4{
