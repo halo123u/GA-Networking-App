@@ -52,6 +52,41 @@ class Feed extends Component{
             this.setState({redirect:true});
     }
 
+    handleFilter = (e) =>{
+        console.log(e.target.value);
+        let filterVal = e.target.value;
+         axios.get('/profile/feed').then(res => {
+            console.log(res.data);
+            let filteredProfiles = res.data.filter(profile=>{
+                if(profile.user_id !== this.props.data.id && profile.class ===filterVal){
+                    return profile
+                }
+            })
+            console.log(filteredProfiles);
+            this.setState({
+                data: filteredProfiles,
+                dataLoaded: true
+            })
+        })
+        .catch(err=> {console.log(err)});
+    }
+
+    restoreSearch = (e) => {
+         axios.get('/profile/feed').then(res => {
+            console.log(res.data);
+            let profiles = res.data.filter(profile=>{
+                if(profile.user_id !== this.props.data.id ){
+                    return profile
+                }
+            })
+            console.log(profiles);
+            this.setState({
+                data: profiles,
+                dataLoaded: true
+            })
+        }).catch(err=> {console.log(err)});
+    }
+
     renderFeed() {
         console.log(this.state.data);
         if (this.state.dataLoaded) {
@@ -96,11 +131,10 @@ class Feed extends Component{
            <div> 
             <h1 className="pageTitle">Feed</h1>
             <div className='class-filter'>
-                <form>
-                    <input type='radio' name='class' value='WDI'/> WDI
-                    <input type='radio' name='class' value='UXDI'/> UXDI
-                    <input type='radio' name='class' value='DSI'/> DSI
-                </form>
+                <input onClick={(e)=>this.handleFilter(e)} type='radio' name='class' value='WDI'/> WDI <br/>
+                <input onClick={(e)=>this.handleFilter(e)} type='radio' name='class' value='UXDI'/> UXDI <br/>
+                <input onClick={(e)=>this.handleFilter(e)} type='radio' name='class' value='DSI'/> DSI <br/>
+                <input onClick={(e)=>this.restoreSearch(e)} type='radio' name='class' value='All'/> All <br/>
             </div>    
             {redirect ?(<Redirect to='/profile'/>) : null}
             {this.renderFeed()}
