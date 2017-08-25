@@ -27,6 +27,7 @@ const Header = (props) => {
                         <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/register'>Register</Link>
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/feed'>Feed</Link>
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/profile'>Profile</Link>
+                        <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/events'>Events</Link>
                         <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.hideNavItem} to='/profileForm'>Profile Bio</Link>
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/profile/edit'>Edit Profile</Link>
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/inbox'>DMs</Link>
@@ -43,7 +44,7 @@ const Header = (props) => {
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/feed'>Feed</Link>
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/profile'>Profile</Link>
                         <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.hideNavItem} to='/profileForm'>Profile Bio</Link>
-                        <Link className="mdl-navigation__link" to='/events'>Events</Link>
+                        <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/events'>Events</Link>
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/profile/edit'>Edit Profile</Link>
                         <Link className="mdl-navigation__link" style={!props.authState ? styles.hideNavItem : styles.showNavItem} to='/inbox'>DMs</Link>
                     </nav>
