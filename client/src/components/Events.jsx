@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
 class Events extends Component {
@@ -7,6 +8,7 @@ class Events extends Component {
         this.state = {
             eventInfo: null,
             eventInfoLoaded: false,
+            redirect: false
         }
     }
     componentDidMount() {
@@ -19,12 +21,23 @@ class Events extends Component {
             })
         })
     }
+    addToList=(event)=>{
+        console.log('this link works');
+        console.log(event);
+        // console.log(this.props);
+        axios.post('/events',{event: event , user_id: this.props.data.id});
+        this.setState({
+            redirect:true
+        });
+    }
 
 
     render() {
-      if(this.state.eventInfoLoaded) {  
+      if(this.state.eventInfoLoaded) {
+          const {redirect}= this.state;  
         return (
-            <div className='events-container'>
+            <div className='events-container'> 
+                {redirect ? <Redirect to='/myeventlist'/> : null}
                 <ul className='event-info'>
                   {this.state.eventInfo.map((event, i) => {
                     
@@ -43,6 +56,7 @@ class Events extends Component {
                                 </div>
                                 <div className="mdl-card__actions mdl-card--border">
                                     <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" target="_blank" href = {event.event_url}>Get More Info...</a>
+                                     <input className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" value="add to favorites" onClick={()=>this.addToList(event)} />
                                 </div>
                             </div>                 
                         </li>

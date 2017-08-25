@@ -57,8 +57,18 @@ class ProfileForm extends Component{
                             <label className="mdl-textfield__label" htmlFor="age">Age...</label>
                         </div>
                         <div className="mdl-textfield mdl-js-textfield">
-                            <input className="mdl-textfield__input" id="class-name" type="text" required="true" name="class_name" value={this.state.class_name} onChange={this.handleInputChange} />
-                            <label className="mdl-textfield__label" htmlFor="class-name">Class Name...</label>
+                            <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="class-name">
+                                <input onClick={this.handleInputChange} type="radio" id="class-name" className="mdl-radio__button" name="class_name" value="WDI" />
+                                <span className="mdl-radio__label">WDI</span>
+                            </label>
+                            <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="class-name">
+                                <input onClick={this.handleInputChange} type="radio" id="class-name" className="mdl-radio__button" name="class_name" value="UXDI" />
+                                <span className="mdl-radio__label">UXDI</span>
+                            </label>
+                            <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="class-name">
+                                <input onClick={this.handleInputChange} type="radio" id="class-name" className="mdl-radio__button" name="class_name" value="DSI" />
+                                <span className="mdl-radio__label">DSI</span>
+                            </label>
                         </div>
                         <div className="mdl-textfield mdl-js-textfield">
                             <input className="mdl-textfield__input" id="cohort" type="text" required="true" name="cohort" value={this.state.cohort} onChange={this.handleInputChange} />

@@ -76,9 +76,7 @@ class Profile extends Component{
         return(
            <div className="Profile">
                 {redirect ?(<Redirect to='/login'/>) : null}
-                <div className="mdl-card__title">
-                    <h1 className="mdl-card__title-text">Profile <i className="material-icons">perm_identity</i> </h1>
-                </div>
+                <h1 className="pageTitle"> Profile <i className="material-icons">perm_identity</i> </h1>
             <ul>
                 <li> {this.renderProfile()} </li> 
             </ul>

@@ -239,8 +239,19 @@ h3.subText {
     text-align: left;
     margin-bottom: 0.5em;
 }
+.class-filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+    margin-top: 2em;
+}
+
+.class-filter::before {
+    content: "Filter by class: ";
+}
 @media(min-width: 760px){
     .events-page{
         width: 30vw;
     }
 }
+
