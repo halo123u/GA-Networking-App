@@ -28,9 +28,16 @@ class Feed extends Component{
         if (this.props.data !== null) {
             this.setState({redirect: false})
             axios.get('/profile/feed').then(res => {
+                console.log(res.data);
+                let profiles = res.data.filter(profile=>{
+                    if(profile.user_id !== this.props.user.id ){
+                        return profile
+                    }
+                })
+                console.log(profiles);
                 this.setState({
-                    data: res.data,
-                    dataLoaded: true,
+                    data: profiles,
+                    dataLoaded: true
                 })
             }).catch(err=> {console.log(err)});
         }else{
