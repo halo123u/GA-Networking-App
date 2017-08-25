@@ -56,6 +56,7 @@ class Events extends Component {
                                 </div>
                                 <div className="mdl-card__actions mdl-card--border">
                                     <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" target="_blank" href = {event.event_url}>Get More Info...</a>
+                                    <input type="button" value="add to favorites" onClick={()=>this.addToList(event)}/>
                                 </div>
                             </div>                 
                         </li>
