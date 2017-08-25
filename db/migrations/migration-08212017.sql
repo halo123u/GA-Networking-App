@@ -2,6 +2,7 @@
 DROP TABLE messages;
 DROP TABLE profile;
 DROP TABLE users;
+DROP TABLE events;
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
@@ -30,6 +31,12 @@ CREATE TABLE IF NOT EXISTS profile (
      recipient_id INT REFERENCES users(id) NOT NULL,
      time_stamp VARCHAR(255),
      content VARCHAR(400)
+);
+
+CREATE TABLE IF NOT EXISTS events (
+    event_id SERIAL PRIMARY KEY,
+    data jsonb,
+    user_id int REFERENCES users(id) NOT NULL
 ); 
 
 INSERT INTO users
