@@ -20,7 +20,15 @@ class MessageForm extends Component {
             console.log('not logged in')
         }
     }
-
+    componentDidMount() {
+        if(this.props.authState){
+            this.setState({redirect: false})
+        }else{
+            this.setState({
+                redirect: true
+            })
+        }
+    }
     handleInputChange(e) {
         const name = e.target.name;
         const value = e.target.value;

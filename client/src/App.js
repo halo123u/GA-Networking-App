@@ -136,7 +136,7 @@ logOut = () => {
                 <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
                 <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
                 <Route exact path="/inbox" render={() => <DMList authState={this.state.auth} data={this.state.user} />} />
-                <Route exact path="/sendMessage" render={()=> <MessageForm sender={this.state.user} recipient={this.state.recipient}/> } />
+                <Route exact path="/sendMessage" render={()=> <MessageForm authState={this.state.auth} sender={this.state.user} recipient={this.state.recipient}/> } />
                 <Route exact path="/events" render={()=> <Events authState={this.state.auth} data={this.state.user}/>} />  
                 <Route component={NoMatch} />
             </Switch>
