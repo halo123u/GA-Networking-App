@@ -18,7 +18,7 @@ class ProfileEdit extends Component {
             user_id: null,
             redirect: false
         }
-    }
+    } 
     componentWillMount() {
         console.log('Checking Logged in Status')
         if(this.props.authState){
@@ -66,13 +66,13 @@ class ProfileEdit extends Component {
             <div className="edit-form mdl-card mdl-shadow--8dp">
                 {redirect ?(<Redirect to='/login'/>) : null}
                 <div className="mdl-card__title">
-                    <h2 className="mdl-card__title-text">Edit Profile</h2>
+                    <h2 className="mdl-card__title-text">Edit Profile  <i className="material-icons">edit</i> </h2>
                 </div>
                 <form onSubmit={(e) => this.props.submit(e, this.state.age, this.state.class_name, this.state.cohort, this.state.interest, this.state.location, this.state.bio, this.state.picture_url, this.state.user_id)}>
                     <div className="mdl-card__supporting-text">
                         <div className="mdl-textfield mdl-js-textfield">
                             <input className="mdl-textfield__input" id="url" type="text" required="true" name="picture_url" value={this.state.picture_url} onChange={this.handleInputChange} />
-                            <label className="mdl-textfield__label" htmlFor="url">Picture Url...</label>
+                            <label className="mdl-textfield__label" htmlFor="url"> <i className="material-icons">add_a_photo</i>   </label>
                         </div>
                         <div className="mdl-textfield mdl-js-textfield">
                             <input className="mdl-textfield__input" id="age" type="number" required="true" name="age" value={this.state.age} onChange={this.handleInputChange} />
@@ -92,7 +92,7 @@ class ProfileEdit extends Component {
                         </div>
                         <div className="mdl-textfield mdl-js-textfield">
                             <input className="mdl-textfield__input" id="location" type="password" required="true" name="location" value={this.state.location} onChange={this.handleInputChange} />
-                            <label className="mdl-textfield__label" htmlFor="location">Location...</label>
+                            <label className="mdl-textfield__label" htmlFor="location"> <i className="material-icons"> add_location</i> Location </label>
                         </div>
                         <div className="mdl-textfield mdl-js-textfield">
                             <input className="mdl-textfield__input" id="bio" type="password" required="true" name="bio" value={this.state.bio} onChange={this.handleInputChange} />

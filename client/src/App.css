@@ -227,6 +227,9 @@ h4{
 p{
     font-size: 10px;
 }
+.mdl-textfield__label-location{
+    background-color: pink;
+}
 
 
 
