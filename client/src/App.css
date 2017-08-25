@@ -158,24 +158,25 @@ div.mdl-textfield input{
 }
 /*Message Form */
 .message-form{
-    height: 100vh;
-    width: 50vh;
-
+    height: auto;
+    width: 90vw;
+    margin-top: 5em;
 }
-#hello{
+.message-form .mdl-card__supporting-text .mdl-textfield{
+    width: 100%;
+}
+.message-form .mdl-card__supporting-text{
+    margin: 0 auto;
+}
+textarea#hello{
     background-color:whitesmoke;
-    position: absolute;
-    left: 1%;
-    bottom: 22%;
-    height: 36px;
-    width: 261px;
     border: 1px solid lightblue;
     
 }
 #send{
     background-color: lightblue;
-    position: absolute;
-    bottom: 23%;
-    right: 1%;
     border-radius: 100px;
+}
+#send:hover{
+    color: black;
 }

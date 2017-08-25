@@ -49,24 +49,24 @@ class MessageForm extends Component {
    render() {
        const {redirect} = this.state;
        return (
-             <div className="message-form">
-              {/* <h1>Message Form</h1> */}
-              {redirect ? <Redirect to='/inbox' /> : null}
-            <div className="chat">
-              <h1>Chat Room 😀</h1>
-            </div>
-            <form onSubmit={(e)=>this.handleFormSubmit(e)} >
-
-              <div class="mdl-textfield mdl-js-textfield">       
-              <input class="mdl-textfield__input" id="hello" type="text" placeholder="Hello..." name="text" value={this.state.text} onChange={this.handleInputChange} />
-              <label class="mdl-textfield__label" for="hello"></label>
-
-             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="send" type="submit" value="send" >
-             Send
-             </button>
-
-            </div>
-            </form>
+           <div className="message-form mdl-card mdl-shadow--8dp">
+               {redirect ? <Redirect to='/inbox' /> : null}
+                <div className="mdl-card__title">
+                    <h2 className="mdl-card__title-text">Send A Message</h2>
+                </div>
+                <form onSubmit={(e)=>this.handleFormSubmit(e)} >
+                    <div className="mdl-card__supporting-text">
+                        <div className="mdl-textfield mdl-js-textfield">  
+                            <textarea className="mdl-textfield__input" id="hello" type="text" name="text" value={this.state.text} onChange={this.handleInputChange} rows= "5"></textarea>
+                            <label className="mdl-textfield__label" htmlFor="hello">Send a message...</label>
+                        </div>
+                    </div>
+                    <div className="mdl-card__actions mdl-card--border">
+                        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="send" type="submit" value="send" >
+                            <i className="material-icons">send</i>
+                        </button>
+                    </div>
+                </form>
             </div>
        )
    }
