@@ -52,11 +52,10 @@ class MessageForm extends Component {
              <div className="message-form">
               <h1>Message Form</h1>
               {redirect ? <Redirect to='/inbox' /> : null}
+            <div className="chat">
+              <h1>Chat</h1>
+            </div>
             <form onSubmit={(e)=>this.handleFormSubmit(e)} >
-{/* 
-            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-             <i class="material-icons"></i>
-            </button> */}
 
               <div class="mdl-textfield mdl-js-textfield">       
               <input class="mdl-textfield__input" id="hello" type="text" placeholder="Hello..." name="text" value={this.state.text} onChange={this.handleInputChange} />
