@@ -141,7 +141,6 @@ logOut = () => {
                 <Route component={NoMatch} />
             </Switch>
           </main>
-          <Footer />
         </div>
       </Router>
     )
