@@ -8,7 +8,7 @@ function getEvents (req, res, next) {
         }).then(jsonRes => {
             // console.log(jsonRes);
             res.locals.data = jsonRes;
-            console.log("getEvents: res.locals.data", res.locals.data);
+            // console.log("getEvents: res.locals.data", res.locals.data);
             next();
         }).catch(err => {console.log(err);
         next();

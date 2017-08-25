@@ -1,17 +1,27 @@
-const axios = require('axios');
+const MyEvent = require('../models/event');
 
 const eventsController = {
     getAllEvents: (req, res) => {
-        // console.log('this is the controller');
-        // axios.get(`https://api.meetup.com/2/open_events?&sign=true&photo-host=public&zip=10010&country=United States&topic=technology&city=New York&state=NY&radius=2&page=15&key=2a71648405c6a89156b301b4b4224`)
-        // .then(data => {
-        //    eventData = data;
-        //    return eventData;
-        // }).catch(err => {console.log(err);
-        // })
-        console.log("eventsController: res.locals.data", res.locals.data);
         res.json(res.locals.data);
+    },
+    addMyEvents: (req,res) =>{
+        // console.log(req.body.event);
+        // console.log(JSON.stringify(req.body.event));
+        console.log(req.body.user_id);
+        MyEvent.addEvent(JSON.stringify(req.body.event),req.body.user_id).then(res=>{
+            console.log(res);
+        }).catch(err=>{
+            console.log(err);
+        })
+
+    },
+    getMyEvents: (req,res)=>{
+
+        MyEvent.getMyEvents(req.params.id).then(data=>{
+            res.json(data);
+        }).catch(err=>console.log(err));
     }
+
 }
 
 module.exports = eventsController;
