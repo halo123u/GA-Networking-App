@@ -44,6 +44,7 @@ class Events extends Component {
                     let eventTime = new Date(event.time).toString().split(' ').slice(0, 5).join(' ');
                       
                     return (
+<<<<<<< HEAD
                         <li className='event' key={i}>
                             <div className="events-page mdl-card mdl-shadow--8dp">
                                 <div className="mdl-card__title">
@@ -58,6 +59,16 @@ class Events extends Component {
                                     <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" target="_blank" href = {event.event_url}>Get More Info...</a>
                                 </div>
                             </div>                 
+=======
+                        <li className='event'>
+                            <h2>Event Name:</h2><h4>{event.name}</h4>
+                            <h2>Event Group Name:</h2> <h4>{event.group.name}</h4>
+                            {event.venue !== undefined ? <div className='venue-name'><h2>Location:</h2> <h4>{event.venue.name}</h4></div> : null}
+                            {event.venue !== undefined ? <div className='venue-address'><h2>Address:</h2> <h4>{event.venue.address_1}</h4></div> : null}
+                            <h2>Event Page:</h2> <p>{event.event_url}</p>
+                             ({event.description})
+                             <input type="button" value="add to my list" onClick={()=>this.addToList(event)}/> 
+>>>>>>> 5c7d2fc95e0ba788f41482f6ee5c7f8662dc4177
                         </li>
                     )
                   })}  
