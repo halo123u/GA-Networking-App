@@ -29,7 +29,6 @@ class App extends Component {
           profileFormInfo: null,
           redirect: false,
           recipient: null,
-          filter: '',
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
@@ -105,14 +104,6 @@ handleRecipient=(id)=>{
   this.setState({
     recipient:id
   });
-}
-
-filterHandler(class) {
-  if(class === this.state.filter) {
-    this.setState({filter: ''})
-  } else {
-    this.setState({filter: class})
-  }
 }
 
 logOut = () => {
