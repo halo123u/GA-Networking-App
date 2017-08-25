@@ -27,14 +27,21 @@ class Events extends Component {
             <div className='events-container'>
                 <ul className='event-info'>
                   {this.state.eventInfo.map(event => {
+                    
+                    let removedFrontTag = event.description.replace(/<.+>/g,'')
+                      {/* console.log(event.description.replace(/<.+>/g,'')) */}
+                      console.log(removedFrontTag)
+                      console.log(removedFrontTag.replace(/<\/.+>/g,''))
+
+                      
                     return (
                         <li className='event'>
                             <h2>Event Name:</h2> <h4>{event.name}</h4>
                             <h2>Event Group Name:</h2> <h4>{event.group.name}</h4>
                             {event.venue !== undefined ? <div className='venue-name'><h2>Location:</h2> <h4>{event.venue.name}</h4></div> : null}
                             {event.venue !== undefined ? <div className='venue-address'><h2>Address:</h2> <h4>{event.venue.address_1}</h4></div> : null}
-                            <h2>Event Page:</h2> <p>{event.event_url}</p>
-                            <p>Event Description: {event.description}</p>
+                            <h2>Event Page:</h2> <a href = {event.event_url}>{event.event_url}</a>
+                            {/* <p>Event Description: {event.description}</p> */}
                         </li>
                     )
                   })}  
