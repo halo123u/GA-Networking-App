@@ -20,7 +20,15 @@ class MessageForm extends Component {
             console.log('not logged in')
         }
     }
-
+    componentDidMount() {
+        if(this.props.authState){
+            this.setState({redirect: false})
+        }else{
+            this.setState({
+                redirect: true
+            })
+        }
+    }
     handleInputChange(e) {
         const name = e.target.name;
         const value = e.target.value;
@@ -49,16 +57,30 @@ class MessageForm extends Component {
    render() {
        const {redirect} = this.state;
        return (
-             <div className="message-form">
-              <h1>Message Form</h1>
-              {redirect ? <Redirect to='/inbox' /> : null}
-            <form onSubmit={(e)=>this.handleFormSubmit(e)} >
-              <input type="text" placeholder="Hello" name="text" value={this.state.text} onChange={this.handleInputChange} />
-              <input type="submit" value="submit" />
-            </form>
+           <div className="message-form mdl-card mdl-shadow--8dp">
+               {redirect ? <Redirect to='/inbox' /> : null}
+                <div className="mdl-card__title">
+                    <h2 className="mdl-card__title-text">Send A Message</h2>
+                </div>
+                <form onSubmit={(e)=>this.handleFormSubmit(e)} >
+                    <div className="mdl-card__supporting-text">
+                        <div className="mdl-textfield mdl-js-textfield">  
+                            <textarea className="mdl-textfield__input" id="hello" type="text" name="text" value={this.state.text} onChange={this.handleInputChange} rows= "5"></textarea>
+                            <label className="mdl-textfield__label" htmlFor="hello">Send a message...</label>
+                        </div>
+                    </div>
+                    <div className="mdl-card__actions mdl-card--border">
+                        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="send" type="submit" value="send" >
+                            <i className="material-icons">send</i>
+                        </button>
+                    </div>
+                </form>
             </div>
        )
    }
 }
+
+
+
 
 export default MessageForm;

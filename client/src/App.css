@@ -87,7 +87,6 @@ footer{
     width: 90vw;
     margin: 0 auto;
     margin-top: 2em;
-    border: 1px solid #bbb;
 }
 .appHome > .mdl-card__title {
   color: black;
@@ -119,6 +118,10 @@ button.mdl-button {
 h2.mdl-card__title-text.profileName {
     top: 0;
     text-transform: capitalize;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px black;
 }
 
 div.h4{
@@ -145,10 +148,55 @@ div.mdl-textfield input{
     width: auto;
     margin: 0 auto;
 }
-.login-page, .register-page{
-   background-color: lightblue;
-    /* position: absolute; */
-    border-radius: 30px;
+.login-page, .register-page, .edit-form.mdl-card, .message-tab{
+   background-color: #ffffff;
+    border-radius: 5px;
     width: 90vw;
     margin: 0 auto;
+    max-height: 80vh;
+    overflow: auto;
+}
+.message-tab{
+    margin-bottom: 2em;
+    overflow: auto;
+}
+.message-tab .mdl-card__supporting-text {
+    overflow: auto;
+}
+/*Message Form */
+.message-form{
+    height: auto;
+    width: 90vw;
+    margin-top: 5em;
+}
+.message-form .mdl-card__supporting-text .mdl-textfield{
+    width: 100%;
+}
+.message-form .mdl-card__supporting-text{
+    margin: 0 auto;
+}
+.messageContent {
+    text-align: left;
+    line-height: 170%;
+    padding: 0em 1em;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 1em;
+}
+
+.messageContent li {
+    text-align: justify;
+    padding-bottom: 1em;
+}
+textarea#hello{
+    background-color:whitesmoke;
+    border: 1px solid lightblue;
+    
+}
+#send{
+    background-color: lightblue;
+    border-radius: 100px;
+    transition: 1s all ease;
+}
+#send:hover{
+    color: black;
 }

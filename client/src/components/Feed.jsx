@@ -30,7 +30,7 @@ class Feed extends Component{
             axios.get('/profile/feed').then(res => {
                 console.log(res.data);
                 let profiles = res.data.filter(profile=>{
-                    if(profile.user_id !== this.props.user.id ){
+                    if(profile.user_id !== this.props.data.id ){
                         return profile
                     }
                 })
