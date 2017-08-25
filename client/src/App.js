@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import NoMatch from './components/NoMatch';
 import MessageForm from './components/MessageForm';
 import Events from './components/Events';
+import EventList from './components/EventList';
 
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 
@@ -138,7 +139,8 @@ logOut = () => {
                       <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
                       <Route exact path="/inbox" render={() => <DMList authState={this.state.auth} data={this.state.user} />} />
                       <Route exact path="/sendMessage" render={()=> <MessageForm sender={this.state.user} recipient={this.state.recipient}/> } />
-                       <Route exact path="/events" render={()=> <Events authState={this.state.auth} data={this.state.user}/>} /> 
+                      <Route exact path="/events" render={()=> <Events authState={this.state.auth} data={this.state.user}/>} /> 
+                      <Route exact path="/myeventlist" render={()=> <EventList authState={this.state.auth} user={this.state.user}/>}/>
                       <Route component={NoMatch} />
                   </Switch>
               </div>
