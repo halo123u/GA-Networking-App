@@ -127,22 +127,6 @@ logOut = () => {
         <div className="App">
           <Header logOut={this.logOut} authState={this.state.auth}/>
           <main className="mdl-layout__content">
-<<<<<<< HEAD
-            {redirect ? (<Redirect to={`/${currentPage}`}/>) : null}
-            <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path="/login" render={() => <Login submit={this.handleLoginSubmit} />} />
-                <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
-                <Route exact path="/feed" render={() => <Feed authState={this.state.auth} recipient={this.handleRecipient} data={this.state.user} />} />
-                <Route exact path="/profile" render={() => <Profile authState={this.state.auth} data={this.state.user}/>} />
-                <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
-                <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
-                <Route exact path="/inbox" render={() => <DMList authState={this.state.auth} data={this.state.user} />} />
-                <Route exact path="/sendMessage" render={()=> <MessageForm authState={this.state.auth} sender={this.state.user} recipient={this.state.recipient}/> } />
-                <Route exact path="/events" render={()=> <Events authState={this.state.auth} data={this.state.user}/>} />  
-                <Route component={NoMatch} />
-            </Switch>
-=======
               <div className="page-content">
                   {redirect ? (<Redirect to={`/${currentPage}`}/>) : null}
                   <Switch>
@@ -160,7 +144,6 @@ logOut = () => {
                       <Route component={NoMatch} />
                   </Switch>
               </div>
->>>>>>> add component for rendering saved events
           </main>
           <Footer />
         </div>
