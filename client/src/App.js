@@ -145,7 +145,6 @@ logOut = () => {
                   </Switch>
               </div>
           </main>
-          <Footer />
         </div>
       </Router>
     )

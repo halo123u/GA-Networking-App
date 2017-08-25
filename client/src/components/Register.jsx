@@ -67,6 +67,7 @@ class Register extends Component{
                             <input className="mdl-textfield__input" id="password-reg" type="password" required="true" name="password" value={this.state.password} onChange={this.handleInputChange} />
                             <label className="mdl-textfield__label" htmlFor="password-reg">Password...</label>
                         </div>
+                        
                     </div>
                     <div className="mdl-card__actions mdl-card--border">
                         <input className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" type="submit" value='Register' onClick={this.handleSubmit} />
