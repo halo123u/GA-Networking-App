@@ -28,11 +28,13 @@ class App extends Component {
           currentPage: '/',
           profileFormInfo: null,
           redirect: false,
-          recipient: null
+          recipient: null,
+          filter: '',
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
         this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
+        this.filterHandler = this.filterHandler.bind(this);
         this.logOut = this.logOut.bind(this);
      }
 
@@ -50,7 +52,7 @@ class App extends Component {
          return false
        }
      }
-
+     
 handleLoginSubmit = (e, username, password) => {
   e.preventDefault();
   console.log("hi");
@@ -103,6 +105,14 @@ handleRecipient=(id)=>{
   this.setState({
     recipient:id
   });
+}
+
+filterHandler(class) {
+  if(class === this.state.filter) {
+    this.setState({filter: ''})
+  } else {
+    this.setState({filter: class})
+  }
 }
 
 logOut = () => {
