@@ -40,7 +40,7 @@ VALUES
 ('bell1', 'bell1', 'john@ga.com','John 🍕', 'Bell'),
 ('yung1', 'yung1', 'yungT@ga.com','Yung 🎶', 'Terminal'),
 ('dom1', 'dom1', 'dom@ga.com','Document 🖥', 'Object Model'),
-('j123', 'j123', 'j@ga.com','J', 'Silverstein 🐈');
+('j123', 'j123', 'j@ga.com','J', 'Silverstein 🐈'),
 ('ram1', 'ram1', 'ram@ga.com','Ramsey 🕹', 'Nasser');
 
 INSERT INTO profile
@@ -48,7 +48,7 @@ INSERT INTO profile
 VALUES
 (28, 'WDI', 'Delorean', 'Back-end development', 'New York City', 'I only sleep-walk. When you see me walking, I am sleep-walking. Also Drew, Drew, Drew-Drew. Drewdrew, Drewdrew, Drewdrew. Drew','http://i.imgur.com/TZIScO0.jpg', 1),
 (75, 'WDI', 'twin peaks', 'Front End', 'New York City', 'I like 💩 and only KaHoots','https://i.imgur.com/v3fJR0k.jpg', 2),
-(30, 'DSI','Doc', 'Hacking', 'New York City', 'I know where all the legos are. But they dont know where I am 👀'),'https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/7502/thumb_John_Bell.jpg', 3),
+(30, 'DSI','Doc', 'Hacking', 'New York City', 'I know where all the legos are. But they dont know where I am 👀', 'https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/7502/thumb_John_Bell.jpg', 3),
 (23, 'UXDI','Swoolers', 'DIV Stacking', 'New York City', 'Making music and swoolin in the next life.','https://ca.slack-edge.com/T0351JZQ0-U5ZF852R0-8463db85a99b-512', 4),
 (23, 'WDI','Delorean', 'Full-Stack', 'New York City', 'My legal full name is "Document Object Model','http://i.imgur.com/hq2ZDOQ.jpg', 5),
 (24, 'UXDI','Delorean', 'Front End', 'New York City', 'I own a cat 🐈 named moose  and a moose named cat. ','https://ca.slack-edge.com/T0351JZQ0-U5ZF852R0-8463db85a99b-512', 6),
