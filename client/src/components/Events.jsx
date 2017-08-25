@@ -26,18 +26,25 @@ class Events extends Component {
         return (
             <div className='events-container'>
                 <ul className='event-info'>
-                  {this.state.eventInfo.map(event => {
+                  {this.state.eventInfo.map((event, i) => {
                     
                     let eventTime = new Date(event.time).toString().split(' ').slice(0, 5).join(' ');
                       
                     return (
-                        <li className='event'>
-                            <h2>Event Name:</h2> <h4>{event.name}</h4>
-                            <h2>Group:</h2> <h4>{event.group.name}</h4>
-                            <h2>Time:</h2> <h4>{eventTime}</h4>
-                            {event.venue !== undefined ? <div className='venue-name'><h2>Location:</h2> <h4>{event.venue.name}</h4></div> : null}
-                            {event.venue !== undefined ? <div className='venue-address'><h2>Address:</h2> <h4>{event.venue.address_1}</h4></div> : null}
-                            <h2>Event Page:</h2> <a href = {event.event_url}>{event.event_url}</a>
+                        <li className='event' key={i}>
+                            <div className="events-page mdl-card mdl-shadow--8dp">
+                                <div className="mdl-card__title">
+                                    <h2 className="mdl-card__title-text">{event.name}</h2>
+                                </div>
+                                <div className="mdl-card__supporting-text">
+                                    <h3 className="subText"> {event.group.name} </h3>
+                                    {event.venue !== undefined ? <h2>Location: {event.venue.name} @ {eventTime}</h2> : null}
+                                    {event.venue !== undefined ? <h2>Address: {event.venue.address_1}</h2> : null}
+                                </div>
+                                <div className="mdl-card__actions mdl-card--border">
+                                    <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" target="_blank" href = {event.event_url}>Get More Info...</a>
+                                </div>
+                            </div>                 
                         </li>
                     )
                   })}  
@@ -45,7 +52,7 @@ class Events extends Component {
             </div>    
         )
       } else {
-          return <div className='loading'><h2>Data Not Loading...</h2></div>
+          return <div id="p2" className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
       }
     }
 }
