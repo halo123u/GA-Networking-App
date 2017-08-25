@@ -51,7 +51,7 @@ VALUES
 (30, 'DSI','Doc', 'Hacking', 'New York City', 'I know where all the legos are. But they dont know where I am 👀', 'https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/7502/thumb_John_Bell.jpg', 3),
 (23, 'UXDI','Swoolers', 'DIV Stacking', 'New York City', 'Making music and swoolin in the next life.','https://ca.slack-edge.com/T0351JZQ0-U5ZF852R0-8463db85a99b-512', 4),
 (23, 'WDI','Delorean', 'Full-Stack', 'New York City', 'My legal full name is "Document Object Model','http://i.imgur.com/hq2ZDOQ.jpg', 5),
-(24, 'UXDI','Delorean', 'Front End', 'New York City', 'I own a cat 🐈 named moose  and a moose named cat. ','https://ca.slack-edge.com/T0351JZQ0-U5ZF852R0-8463db85a99b-512', 6),
+(24, 'UXDI','Delorean', 'Front End', 'New York City', 'I own a cat 🐈 named moose  and a moose named cat. ','https://git.generalassemb.ly/avatars/u/4451?s=400', 6),
 (26, 'DSI','Delorean', 'Games', 'New York City', 'I am a NPM package with only one dependency: Ramsey','https://vcard.newschool.edu/?c=500812', 7);
  
 INSERT INTO messages
