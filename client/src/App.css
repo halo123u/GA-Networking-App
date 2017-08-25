@@ -148,12 +148,13 @@ div.mdl-textfield input{
     width: auto;
     margin: 0 auto;
 }
-.login-page, .register{
-   background-color: lightblue;
-    /* position: absolute; */
-    border-radius: 30px;
+.login-page, .register-page, .edit-form.mdl-card{
+   background-color: #ffffff;
+    border-radius: 5px;
     width: 90vw;
     margin: 0 auto;
+    max-height: 80vh;
+    overflow: auto;
 }
 /*Message Form */
 .message-form{
