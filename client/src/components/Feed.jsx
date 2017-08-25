@@ -61,13 +61,13 @@ class Feed extends Component{
                         </div>
                         <div className="mdl-card__supporting-text">
                             <h4>About {profile.first_name} </h4>
-                            {profile.bio}
+                            <h4>Bio:</h4> {profile.bio}
                             <ul>
                                 <li> <p>Age: {profile.age}</p> </li>
                                 <li> <p>Location: {profile.location}</p> </li>
                                 <li> <p>Class: {profile.class}</p> </li>
                                 <li> <p>Cohort: {profile.cohort}</p> </li>
-                                <li> <p>Interest's: {profile.interest}</p> </li>
+                                <li> <p>Interests: {profile.interest}</p> </li>
                             </ul>
                         </div>
                         <div className="mdl-card__actions mdl-card--border">
