@@ -6,7 +6,7 @@ class NoMatch extends Component{
     render(){
         return(
             <div> 
-                <h1> 404 Not Found </h1>
+                <h1 className="pageTitle"> 404 Not Found </h1>
                 <h2><Link to='/profile'>Go Back</Link></h2>
             </div>
         )

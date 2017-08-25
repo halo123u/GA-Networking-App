@@ -16,14 +16,6 @@ const Message =(props)=> {
                 <li>{props.messages.content}</li>
             </div>
         </div>
-    //   <div className= "message-container">
-    //       <p></p>
-    //       <p>{props.messages.sender_id}</p>
-    //       <p>{props.messages.time_stamp} </p>
-    //       <p>{props.messages.content}</p>
-    //       <p onClick={()=>props.delete(props.messages.id)}>DELETE</p> 
-    //   </div>
-
       );
 
     }
