@@ -64,12 +64,5 @@ VALUES
 INSERT INTO messages
 (sender_id, recipient_id, content, time_stamp)
 VALUES
-<<<<<<< HEAD
 (1,2,'Hi would you like to play hide and seek.','10:00am'),
 (2,1,'No thank you.','5:00pm');
-=======
-(1,2,'Hey, I  think your projects look cool. Let me know if you would like to collaborate.','10:00am'),
-(2,1,'When do you think you would be free to meet up? I have a meeting at 2 but Im free after.','5:00pm'),
-(3,1,'When do youdlkfmgvklmdfklgmkldfg think you would be I have a meeting at 2 but Im free after.','7:00pm');
-
->>>>>>> 5c7d2fc95e0ba788f41482f6ee5c7f8662dc4177
