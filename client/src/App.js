@@ -33,7 +33,6 @@ class App extends Component {
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
         this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
-        this.filterHandler = this.filterHandler.bind(this);
         this.logOut = this.logOut.bind(this);
      }
 
