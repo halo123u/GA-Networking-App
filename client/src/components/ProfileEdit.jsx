@@ -63,10 +63,43 @@ class ProfileEdit extends Component {
     render(){
         const {redirect} = this.state
         return(
+            <div className="register-page mdl-card mdl-shadow--8dp">
+                {redirect ?(<Redirect to='/profile'/>) : null}
+                <div className="mdl-card__title">
+                    <h2 className="mdl-card__title-text">Edit Profile</h2>
+                </div>
+                <form onSubmit={(e) => this.props.submit(e, this.state.age, this.state.class_name, this.state.cohort, this.state.interest, this.state.location, this.state.bio, this.state.picture_url, this.state.user_id)}>
+                    <div className="mdl-card__supporting-text">
+                        <div className="mdl-textfield mdl-js-textfield">
+                            <input className="mdl-textfield__input" id="name" type="text" required="true" name="firstName" value={this.state.firstName} onChange={this.handleInputChange} />
+                            <label className="mdl-textfield__label" htmlFor="name">First Name...</label>
+                        </div>
+                        <div className="mdl-textfield mdl-js-textfield">
+                            <input className="mdl-textfield__input" id="last" type="text" required="true" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} />
+                            <label className="mdl-textfield__label" htmlFor="last">Last Name...</label>
+                        </div>
+                        <div className="mdl-textfield mdl-js-textfield">
+                            <input className="mdl-textfield__input" id="email" type="email" required="true" name="email" value={this.state.email} onChange={this.handleInputChange} />
+                            <label className="mdl-textfield__label" htmlFor="email">Email...</label>
+                        </div>
+                        <div className="mdl-textfield mdl-js-textfield">
+                            <input className="mdl-textfield__input" id="user-reg" type="text" required="true" name="username" value={this.state.username} onChange={this.handleInputChange} />
+                            <label className="mdl-textfield__label" htmlFor="user-reg">Username..</label>
+                        </div>
+                        <div className="mdl-textfield mdl-js-textfield">
+                            <input className="mdl-textfield__input" id="password-reg" type="password" required="true" name="password" value={this.state.password} onChange={this.handleInputChange} />
+                            <label className="mdl-textfield__label" htmlFor="password-reg">Password...</label>
+                        </div>
+                    </div>
+                    <div className="mdl-card__actions mdl-card--border">
+                        <input className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" type="submit" value='Register' onClick={this.handleSubmit} />
+                    </div>
+                </form>
+            </div>
             <div className="edit-form">
                 {redirect ?(<Redirect to='/login'/>) : null}
                 <h1>Edit Form</h1>
-                <form onSubmit={(e) => this.props.submit(e, this.state.age, this.state.class_name, this.state.cohort, this.state.interest, this.state.location, this.state.bio, this.state.picture_url, this.state.user_id)}>
+                
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" id="url" type="type" placeholder="Picture Url" required="true" name="picture_url" value={this.state.picture_url} onChange={this.handleInputChange} />
                   <label className="mdl-textfield__label" for="url"></label>
