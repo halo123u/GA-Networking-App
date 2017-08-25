@@ -95,6 +95,13 @@ class Feed extends Component{
         return(
            <div> 
             <h1 className="pageTitle">Feed</h1>
+            <div className='class-filter'>
+                <form>
+                    <input type='radio' name='class' value='WDI'/> WDI
+                    <input type='radio' name='class' value='UXDI'/> UXDI
+                    <input type='radio' name='class' value='DSI'/> DSI
+                </form>
+            </div>    
             {redirect ?(<Redirect to='/profile'/>) : null}
             {this.renderFeed()}
            </div> 

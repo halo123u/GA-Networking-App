@@ -28,11 +28,12 @@ class App extends Component {
           currentPage: '/',
           profileFormInfo: null,
           redirect: false,
-          recipient: null
+          recipient: null,
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
         this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
+        this.filterHandler = this.filterHandler.bind(this);
         this.logOut = this.logOut.bind(this);
      }
 
@@ -50,7 +51,7 @@ class App extends Component {
          return false
        }
      }
-
+     
 handleLoginSubmit = (e, username, password) => {
   e.preventDefault();
   console.log("hi");
