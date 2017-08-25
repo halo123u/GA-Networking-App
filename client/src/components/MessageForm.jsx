@@ -50,10 +50,10 @@ class MessageForm extends Component {
        const {redirect} = this.state;
        return (
              <div className="message-form">
-              <h1>Message Form</h1>
+              {/* <h1>Message Form</h1> */}
               {redirect ? <Redirect to='/inbox' /> : null}
             <div className="chat">
-              <h1>Chat</h1>
+              <h1>Chat Room 😀</h1>
             </div>
             <form onSubmit={(e)=>this.handleFormSubmit(e)} >
 

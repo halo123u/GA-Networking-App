@@ -204,4 +204,29 @@ Message Form */
     right: 1%;
     border-radius: 100px;
 }
+.chat{
+    background-color: lightblue;
+    border: 1px solid white;
+    height: 40px;
+    display: flex;
+    flex-direction: reverse;
+}
+/* Event-page */
+.events-container{
+    width: 90vw;
+    height: 100vh;
+}
+h2 {
+   font-size: 20px;
+   /* display: flex; */
+}
+h4{
+ font-size: 15px;
+ display: flex;
+}
+p{
+    font-size: 10px;
+}
+
+
 
