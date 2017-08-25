@@ -53,12 +53,27 @@ class MessageForm extends Component {
               <h1>Message Form</h1>
               {redirect ? <Redirect to='/inbox' /> : null}
             <form onSubmit={(e)=>this.handleFormSubmit(e)} >
-              <input type="text" placeholder="Hello" name="text" value={this.state.text} onChange={this.handleInputChange} />
-              <input type="submit" value="submit" />
+{/* 
+            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+             <i class="material-icons"></i>
+            </button> */}
+
+              <div class="mdl-textfield mdl-js-textfield">       
+              <input class="mdl-textfield__input" id="hello" type="text" placeholder="Hello..." name="text" value={this.state.text} onChange={this.handleInputChange} />
+              <label class="mdl-textfield__label" for="hello"></label>
+
+             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="send" type="submit" value="send" >
+             Send
+             </button>
+
+            </div>
             </form>
             </div>
        )
    }
 }
+
+
+
 
 export default MessageForm;
