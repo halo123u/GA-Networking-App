@@ -176,6 +176,7 @@ textarea#hello{
 #send{
     background-color: lightblue;
     border-radius: 100px;
+    transition: 1s all ease;
 }
 #send:hover{
     color: black;
