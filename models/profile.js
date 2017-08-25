@@ -29,7 +29,7 @@ const Profile ={
     },
     getAll: ()=>{
         return db.query(`
-        SELECT users.first_name, users.last_name, profile.age, profile.class, profile.bio, profile.picture_url, profile.user_id 
+        SELECT users.first_name, users.last_name, profile.age, profile.class, profile.cohort, profile.interest, profile.location, profile.bio, profile.picture_url, profile.user_id 
         FROM users join profile on users.id = profile.user_id`)
     }
 
