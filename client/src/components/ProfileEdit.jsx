@@ -73,7 +73,7 @@ class ProfileEdit extends Component {
                   <input className="mdl-textfield__input"  id="age" type="number" placeholder="Age" required="true" name="age" value={this.state.age} onChange={this.handleInputChange} />
                   <label className="mdl-textfield__label" for="age"></label>
                   <input className="mdl-textfield__input" rows= "1" id="class-name" type="type" placeholder="Class name" required="true" name="class_name" value={this.state.class_name} onChange={this.handleInputChange} />
-                  <label class="mdl-textfield__label" for="class-name"></label>
+                  <label className="mdl-textfield__label" for="class-name"></label>
                   <input className="mdl-textfield__input" rows= "1" id="cohort" type="type" placeholder="Cohort" required="true" name="cohort" value={this.state.cohort} onChange={this.handleInputChange} />
                   <label className="mdl-textfield__label" for="cohort"></label>
                   <input className="mdl-textfield__input" rows= "1" id="interest" type="type" placeholder="Interest" required="true" name="interest" value={this.state.interest} onChange={this.handleInputChange} />

@@ -277,4 +277,28 @@ div.mdl-card__supporting-text ul {
 .edit-form{
     height: 100vh;
 }
+/* 
+Message Form */
+.message-form{
+    height: 100vh;
+    width: 50vh;
+
+}
+#hello{
+    background-color:whitesmoke;
+    position: absolute;
+    left: 1%;
+    bottom: 22%;
+    height: 36px;
+    width: 261px;
+    border: 1px solid lightblue;
+    
+}
+#send{
+    background-color: lightblue;
+    position: absolute;
+    bottom: 23%;
+    right: 1%;
+    border-radius: 100px;
+}
 
