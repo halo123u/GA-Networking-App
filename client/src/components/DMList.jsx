@@ -84,23 +84,35 @@ renderMessages() {
     if (this.state.apiDataLoaded) {
         return(
             <div>
-                <h1>Received</h1> 
-                {this.state.apiData.map(messages => {
-                    return (
-                        <Message key={messages.id} delete={this.deleteMessage} messages={messages} />
-                    );  
-                })}
-                <h1>Sent</h1>
-                {this.state.apiDataSent.map(messages => {
-                    return (
-                        <Message key={messages.id} delete={this.deleteMessage} messages={messages} />
-                    );  
-                })}
+                <div className="message-tab mdl-card mdl-shadow--8dp">
+                    <div className="mdl-card__title">
+                        <h2 className="mdl-card__title-text">Received</h2>
+                    </div>
+                    <div className="mdl-card__supporting-text">
+                        {this.state.apiData.map(messages => {
+                        return (
+                            <Message key={messages.id} delete={this.deleteMessage} messages={messages} />
+                        );  
+                        })}
+                    </div>
+                </div>
+                <div className="message-tab mdl-card mdl-shadow--8dp">
+                    <div className="mdl-card__title">
+                        <h2 className="mdl-card__title-text">Sent</h2>
+                    </div>
+                    <div className="mdl-card__supporting-text">
+                        {this.state.apiDataSent.map(messages => {
+                            return (
+                                <Message key={messages.id} delete={this.deleteMessage} messages={messages} />
+                            );  
+                        })}
+                    </div>
+                </div>
             </div>
 
         )
     } else {
-        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+        <div id="p2" className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
     }
 }
 

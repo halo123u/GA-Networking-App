@@ -148,12 +148,16 @@ div.mdl-textfield input{
     width: auto;
     margin: 0 auto;
 }
-.login-page, .register-page, .edit-form.mdl-card{
+.login-page, .register-page, .edit-form.mdl-card, .message-tab{
    background-color: #ffffff;
     border-radius: 5px;
     width: 90vw;
     margin: 0 auto;
     max-height: 80vh;
+    overflow: auto;
+}
+.message-tab{
+    margin-bottom: 2em;
     overflow: auto;
 }
 /*Message Form */
