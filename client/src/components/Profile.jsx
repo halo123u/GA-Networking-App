@@ -74,9 +74,11 @@ class Profile extends Component{
     render(){
         const {redirect} = this.state;
         return(
-            <div className="Profile">
+           <div className="Profile">
                 {redirect ?(<Redirect to='/login'/>) : null}
-                <h1 className="pageTitle">Profile</h1>
+                <div className="mdl-card__title">
+                    <h1 className="mdl-card__title-text">Profile <i className="material-icons">perm_identity</i> </h1>
+                </div>
             <ul>
                 <li> {this.renderProfile()} </li> 
             </ul>
@@ -84,5 +86,6 @@ class Profile extends Component{
         )
     }
 }
+
 
 export default Profile;
