@@ -29,7 +29,6 @@ class Events extends Component {
                   {this.state.eventInfo.map(event => {
                     
                     let eventTime = new Date(event.time).toString().split(' ').slice(0, 5).join(' ');
-                    console.log(new Date ({}))
                       
                     return (
                         <li className='event'>
@@ -39,7 +38,6 @@ class Events extends Component {
                             {event.venue !== undefined ? <div className='venue-name'><h2>Location:</h2> <h4>{event.venue.name}</h4></div> : null}
                             {event.venue !== undefined ? <div className='venue-address'><h2>Address:</h2> <h4>{event.venue.address_1}</h4></div> : null}
                             <h2>Event Page:</h2> <a href = {event.event_url}>{event.event_url}</a>
-                            {/* <p>Event Description: {event.description}</p> */}
                         </li>
                     )
                   })}  
