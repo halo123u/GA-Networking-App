@@ -36,6 +36,24 @@ class EventList extends Component{
             })
         }
     }
+    removeFromList=(data)=>{
+        axios.delete(`/events/${data.event_id}`).then(res=>{
+            console.log(res);
+            let currentEvents = this.state.apiData;
+            console.log(currentEvents);
+            currentEvents = currentEvents.filter(event=>{
+                    return event.event_id !== data.event_id
+                });
+            this.setState({
+                apiData: currentEvents
+            },()=>{
+                console.log(currentEvents);
+            });
+
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
 
     renderEventList(){
          if(this.state.apiLoaded) {
@@ -56,6 +74,7 @@ class EventList extends Component{
                                         {event.data.venue !== undefined ? <h2>Address: {event.data.venue.address_1}</h2> : null}
                                     </div>
                                     <div className="mdl-card__actions mdl-card--border">
+                                    <button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" value="add to favorites" onClick={()=>this.removeFromList(event)}>Delete from favorites</button>
                                         <Link className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank" to={event.data.event_url}>Get More Info...</Link>
                                     </div>
                                 </div>                 

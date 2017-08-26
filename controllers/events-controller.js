@@ -20,6 +20,13 @@ const eventsController = {
         MyEvent.getMyEvents(req.params.id).then(data=>{
             res.json(data);
         }).catch(err=>console.log(err));
+    },
+    deleteMyEvents:(req,res)=>{
+        console.log('event deleted');
+        console.log(req.params.id);
+        MyEvent.deleteEvent(req.params.id).then(data=>{
+            res.json(data);
+        }).catch(err=>console.log(err));
     }
 
 }
