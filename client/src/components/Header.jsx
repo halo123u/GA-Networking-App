@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './Footer';
 import {Link} from 'react-router-dom';
 
 const Header = (props) => {
