@@ -34,4 +34,12 @@ Navigate to the app's `client` folder, where you will install the dependencies f
     axios
     react-router-dom
 
-Some dependencies are already present in the initialized React app, but the above two dependencies will need to be installed separately.   
+Some dependencies are already present in the initialized React app, but the above two dependencies will need to be installed separately.
+
+## App User Stories
+
+Our goal for this app is for General Assembly students, teachers, and alumni to have their own localized networking tool so that they can network or collaborate with one another. As students currently enrolled in an Immersive program, our group members realized that due the intense nature of the course, we have minimal interaction with other GA people outside of people directly associated with our cohort. But if we wanted to meet people taking other courses, there isn't really a quick and convenient way to do so. 
+
+With this app, users will be able to link directly with other users who are affiliated with GA and reach out to them in order to expand their network and collaborate. Users will also be able to find events close to GA's campus that, while not directly affiliated with the school, provides a handy guide to other potential networking opportunities thanks to the integration of the Meetup API.
+
+While mixers set up by staff are fine and usually involve free food (always a bonus), they are still awkward experiences because it feels like students are being forced to interact with strangers. With our app, users can choose to put as much effort into reaching out to other students, teachers, or alumni as they feel comfortable with, thereby reducing that awkwardness from the mixers and giving people more control over a process that is uncomfortable for many.   
