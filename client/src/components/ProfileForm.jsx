@@ -75,15 +75,15 @@ class ProfileForm extends Component{
                             <label className="mdl-textfield__label" htmlFor="cohort">Cohort..</label>
                         </div>
                         <div className="mdl-textfield mdl-js-textfield">
-                            <input className="mdl-textfield__input" id="interest" type="password" required="true" name="interest" value={this.state.interest} onChange={this.handleInputChange} />
+                            <input className="mdl-textfield__input" id="interest" type="text" required="true" name="interest" value={this.state.interest} onChange={this.handleInputChange} />
                             <label className="mdl-textfield__label" htmlFor="interest">Interest...</label>
                         </div>
                         <div className="mdl-textfield mdl-js-textfield">
-                            <input className="mdl-textfield__input" id="location" type="password" required="true" name="location" value={this.state.location} onChange={this.handleInputChange} />
+                            <input className="mdl-textfield__input" id="location" type="text" required="true" name="location" value={this.state.location} onChange={this.handleInputChange} />
                             <label className="mdl-textfield__label" htmlFor="location"> <i className="material-icons"> add_location</i> Location </label>
                         </div>
                         <div className="mdl-textfield mdl-js-textfield">
-                            <input className="mdl-textfield__input" id="bio" type="password" required="true" name="bio" value={this.state.bio} onChange={this.handleInputChange} />
+                            <input className="mdl-textfield__input" id="bio" type="text" required="true" name="bio" value={this.state.bio} onChange={this.handleInputChange} />
                             <label className="mdl-textfield__label" htmlFor="bio">Bio...</label>
                         </div>
                     </div>
