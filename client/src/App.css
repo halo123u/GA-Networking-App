@@ -249,6 +249,19 @@ h3.subText {
 .class-filter::before {
     content: "Filter by class: ";
 }
+.class-filter.edit-profile::before {
+    content: "Class: ";
+}
+
+.class-filter.edit-profile {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.class-filter.edit-profile label {
+    display: flex;
+    align-items: center;
+}
 @media(min-width: 760px){
     .events-page{
         width: 30vw;
