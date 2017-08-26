@@ -46,4 +46,12 @@ While mixers set up by staff are fine and usually involve free food (always a bo
 
 ## [Final Wireframes](/'Project 3 Final Wireframes')
 
-## [ERD](./public/GANetworkingERD.png)   
+## [ERD](./public/GANetworkingERD.png)
+
+## Unsolved Problems & Hurdles
+
+As described above, one of the first and most important hurdles we had to overcome was what we wanted our app to be. We had to change the entire purpose of our app on a dime, which was scary for us but ultimately I feel like we pulled through.
+
+One frustrating problem that we had was with our events data. When we made the call to the Meetup API, we wanted to show a description for each event which would inform the user what that event was about. However, when it rendered, it would have html tags in the body. We tried using `regular expression` to remove them, but it didn't work, so we ultimately just decided to remove it and direct users to get more info from the event's page on Meetup, which has the description anyway.
+
+While messaging works in the sense that you can send and receive them, it does so in a very primitive fashion, and when a message is deleted, it's deleted from both users. We looked at using Firebase for messaging, but it just didn't line up with everything else in our app, so we weren't able to fit realtime messaging in with everything else we were working on.
