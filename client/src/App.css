@@ -262,6 +262,21 @@ h3.subText {
     display: flex;
     align-items: center;
 }
+div.mdl-textfield input {
+    width: 90%;
+}
+
+
+.mdl-card__supporting-text {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    flex-flow: column;
+}
+
+.mdl-textfield.mdl-js-textfield {
+    margin: 0 auto;
+}
 @media(min-width: 760px){
     .events-page{
         width: 30vw;
