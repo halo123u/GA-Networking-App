@@ -41,7 +41,7 @@ class ProfileForm extends Component{
     render(){
         const {redirect} = this.state;
         return(
-            <div className="profileForm">  
+            <div className="edit-form mdl-card mdl-shadow--8dp">  
                 <div className="mdl-card__title">
                     <h2 className="mdl-card__title-text">Profile Form  <i className="material-icons">account_box</i> </h2>
                 </div>
@@ -56,7 +56,7 @@ class ProfileForm extends Component{
                             <input className="mdl-textfield__input" id="age" type="number" required="true" name="age" value={this.state.age} onChange={this.handleInputChange} />
                             <label className="mdl-textfield__label" htmlFor="age">Age...</label>
                         </div>
-                        <div className="mdl-textfield mdl-js-textfield">
+                        <div className="class-filter edit-profile">
                             <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="class-name">
                                 <input onClick={this.handleInputChange} type="radio" id="class-name" className="mdl-radio__button" name="class_name" value="WDI" />
                                 <span className="mdl-radio__label">WDI</span>

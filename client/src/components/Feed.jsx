@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Feed extends Component{
@@ -9,7 +9,8 @@ class Feed extends Component{
             data: null,
             dataLoaded: false,
             userInfo: null,
-            redirect: false
+            redirect: false,
+            currentPage: 'feed'
         }
       this.renderFeed = this.renderFeed.bind(this);  
     }
@@ -49,7 +50,19 @@ class Feed extends Component{
     sendMessage=(id)=>{
             console.log(`sending message to ${id}`);
             this.props.recipient(id);
-            this.setState({redirect:true});
+            this.setState({
+                redirect:true,
+                currentPage: 'sendMessage'
+            });
+    }
+    
+    viewProfile = (id) => {
+        console.log(`Viewing profile of ${id}`);
+        this.props.profileToView(id);
+        this.setState({
+            redirect: true,
+            currentPage: `profile/meet`
+        })
     }
 
     handleFilter = (e) =>{
@@ -92,7 +105,7 @@ class Feed extends Component{
         if (this.state.dataLoaded) {
             return (
               <ul className='feed'>  
-                {this.state.redirect ?(<Redirect to={`/sendMessage`} />) : null}   
+                {this.state.redirect ?(<Redirect to={`/${this.state.currentPage}`} />) : null}   
                 {this.state.data.map((profile, i) => {
                     return (
                     <div className="profile-card-square mdl-card mdl-shadow--8dp" key={i}>
@@ -114,6 +127,7 @@ class Feed extends Component{
                         </div>
                         <div className="mdl-card__actions mdl-card--border">
                         <button onClick={(()=>this.sendMessage(profile.user_id))} className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Send Message</button>
+                        <button onClick={(()=>this.viewProfile(profile.user_id))} className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">View Profile</button>
                         </div>
                     </div>
                     )

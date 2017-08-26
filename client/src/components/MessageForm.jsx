@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 import axios from 'axios';
 
 class MessageForm extends Component {
@@ -70,6 +70,7 @@ class MessageForm extends Component {
                         </div>
                     </div>
                     <div className="mdl-card__actions mdl-card--border">
+                        <Link className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" to='/feed'>Go Back</Link>
                         <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="send" type="submit" value="send" >
                             <i className="material-icons">send</i>
                         </button>
