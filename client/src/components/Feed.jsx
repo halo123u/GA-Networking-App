@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
+import shuffle from 'shuffle-array';
 
 class Feed extends Component{
     constructor(props){
@@ -32,9 +33,11 @@ class Feed extends Component{
                 console.log(res.data);
                 let profiles = res.data.filter(profile=>{
                     if(profile.user_id !== this.props.data.id ){
-                        return profile
+                        return profile;
                     }
-                })
+                });
+                console.log(profiles);
+                shuffle(profiles);
                 console.log(profiles);
                 this.setState({
                     data: profiles,

@@ -11,6 +11,11 @@ const MyEvent = {
         return db.query(`
         SELECT * from events where user_id=$1`,[id]);
 
+    },
+    deleteEvent: (id)=>{
+        return db.one(`
+        DELETE from events where event_id = $1
+        RETURNING *`,[id]);
     }
 }
 
