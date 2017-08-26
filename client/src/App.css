@@ -277,14 +277,7 @@ div.mdl-textfield input {
 .mdl-textfield.mdl-js-textfield {
     margin: 0 auto;
 }
-header {
-    position: absolute;
-    z-index: 999;
-}
 
-.mdl-layout__container {
-    position: fixed;
-}
 @media(min-width: 760px){
     .events-page{
         width: 30vw;
