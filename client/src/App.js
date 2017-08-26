@@ -15,6 +15,7 @@ import NoMatch from './components/NoMatch';
 import MessageForm from './components/MessageForm';
 import Events from './components/Events';
 import EventList from './components/EventList';
+import OtherProfile from './components/OtherProfile';
 
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 
@@ -30,6 +31,7 @@ class App extends Component {
           profileFormInfo: null,
           redirect: false,
           recipient: null,
+          profileToView: null,
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
@@ -105,6 +107,11 @@ handleRecipient=(id)=>{
     recipient:id
   });
 }
+handleProfileToView = (id) => {
+  this.setState({
+    profileToView: id
+  })
+}
 
 logOut = () => {
   axios.get('/auth/logout')
@@ -133,14 +140,15 @@ logOut = () => {
                       <Route exact path='/' component={Home} />
                       <Route exact path="/login" render={() => <Login submit={this.handleLoginSubmit} />} />
                       <Route exact path="/register" render={() => <Register submit={this.handleRegisterSubmit} />} />
-                      <Route exact path="/feed" render={() => <Feed authState={this.state.auth} user={this.state.user} recipient={this.handleRecipient} data={this.state.user} />} />
+                      <Route exact path="/feed" render={() => <Feed authState={this.state.auth} user={this.state.user} recipient={this.handleRecipient} data={this.state.user} profileToView={this.handleProfileToView} />} />
                       <Route exact path="/profile" render={() => <Profile authState={this.state.auth} data={this.state.user}/>} />
                       <Route exact path="/profile/edit" render={() => <ProfileEdit data={this.state.user} submit={this.handleProfileFormSubmit}/>} />
                       <Route exact path="/profileForm" render={() => <ProfileForm data={this.state.user} submit={this.handleProfileFormSubmit}/>}/>
                       <Route exact path="/inbox" render={() => <DMList authState={this.state.auth} data={this.state.user} />} />
-                      <Route exact path="/sendMessage" render={()=> <MessageForm sender={this.state.user} recipient={this.state.recipient}/> } />
+                      <Route exact path="/sendMessage" render={()=> <MessageForm authState={this.state.auth} sender={this.state.user} recipient={this.state.recipient}/> } />
                       <Route exact path="/events" render={()=> <Events authState={this.state.auth} data={this.state.user}/>} /> 
                       <Route exact path="/myeventlist" render={()=> <EventList authState={this.state.auth} user={this.state.user}/>}/>
+                      <Route exact path="/profile/meet" render={()=> <OtherProfile authState={this.state.auth} data={this.state.user} profileToView={this.state.profileToView}/>}/>
                       <Route component={NoMatch} />
                   </Switch>
               </div>
