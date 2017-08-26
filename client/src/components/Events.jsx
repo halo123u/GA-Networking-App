@@ -55,8 +55,8 @@ class Events extends Component {
                                     {event.venue !== undefined ? <h2>Address: {event.venue.address_1}</h2> : null}
                                 </div>
                                 <div className="mdl-card__actions mdl-card--border">
-                                    <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" target="_blank" href = {event.event_url}>Get More Info...</a>
-                                     <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" value="add to favorites" onClick={()=>this.addToList(event)}>Add to favorites</button>
+                                    <Link className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank" to={event.event_url}>Get More Info...</Link>
+                                     <button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" value="add to favorites" onClick={()=>this.addToList(event)}>Add to favorites</button>
                                 </div>
                             </div>                 
                         </li>
