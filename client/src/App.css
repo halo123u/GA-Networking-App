@@ -279,6 +279,9 @@ div.mdl-textfield input {
 }
 
 @media(min-width: 760px){
+    .mdl-card{
+        width: 50vw !important;
+    }
     .events-page{
         width: 30vw;
     }
