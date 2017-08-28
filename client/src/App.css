@@ -282,6 +282,9 @@ div.mdl-textfield input {
     .mdl-card{
         width: 50vw !important;
     }
+    .login-page, .register-page, .edit-form.mdl-card, .message-tab, .events-page{
+        height: 800px;
+    }
     .events-page{
         width: 30vw;
     }
