@@ -277,13 +277,15 @@ div.mdl-textfield input {
 .mdl-textfield.mdl-js-textfield {
     margin: 0 auto;
 }
+li.event {margin-right: 1em;}
 
+.mdl-card__actions.mdl-card--border {display: flex;align-items: center;justify-content: center;flex-flow: column;}
 @media(min-width: 760px){
     .mdl-card{
-        width: 50vw !important;
+        width: 45vw !important;
     }
-    .login-page, .register-page, .edit-form.mdl-card, .message-tab, .events-page{
-        height: 800px;
+    .profile-card-square{
+        height: 750px !important;
     }
     .events-page{
         width: 30vw;
