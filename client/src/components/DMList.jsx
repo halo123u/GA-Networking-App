@@ -15,14 +15,6 @@ constructor(props) {
         redirect: false
      }
 }
-    componentWillMount() {
-        console.log('Checking Logged in Status')
-        if(this.props.authState){
-            console.log('logged in already')
-        }else{
-            console.log('not logged in')
-        }
-    }
 
     componentDidMount() {
         this.setState({userInfo: this.props.data})
@@ -30,10 +22,8 @@ constructor(props) {
             this.setState({
                 redirect: false
             })
-            console.log('getting messages')
             axios.get(`/messages/received/${this.props.data.id}`)
             .then(res => {
-                console.log(res.data.messages)
                 this.setState ({
                     apiDataLoaded: true,
                     apiData: res.data.messages,
@@ -43,7 +33,6 @@ constructor(props) {
 
             axios.get(`/messages/sent/${this.props.data.id}`)
             .then(res => {
-                console.log(res.data.messages)
                 this.setState ({
                     apiDataSent: res.data.messages,
                     redirect: false
@@ -51,7 +40,6 @@ constructor(props) {
             }).catch(err=>{console.log(err)})
         
         }else{
-            console.log("messages not loaded")
             this.setState({
                 redirect: true
             })

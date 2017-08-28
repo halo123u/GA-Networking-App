@@ -19,14 +19,12 @@ class ProfileForm extends Component{
     }
     componentDidMount() {
         if(this.props.data !== null){
-            console.log(this.props.data)
             this.setState({
                 redirect: false,
                 userInfo: this.props.data,
                 user_id: this.props.data.id
             })
         }else{
-            console.log('Profile not loaded')
             this.setState({redirect: true})
         }
     }

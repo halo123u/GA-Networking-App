@@ -13,16 +13,6 @@ class Feed extends Component{
             redirect: false,
             currentPage: 'feed'
         }
-      this.renderFeed = this.renderFeed.bind(this);  
-    }
-
-    componentWillMount() {
-        console.log('Checking Logged in Status')
-        if(this.props.authState){
-            console.log('logged in already')
-        }else{
-            console.log('not logged in')
-        }
     }
 
     componentDidMount() {
@@ -30,28 +20,25 @@ class Feed extends Component{
         if (this.props.data !== null) {
             this.setState({redirect: false})
             axios.get('/profile/feed').then(res => {
-                console.log(res.data);
                 let profiles = res.data.filter(profile=>{
                     if(profile.user_id !== this.props.data.id ){
                         return profile;
                     }
                 });
-                console.log(profiles);
+
                 shuffle(profiles);
-                console.log(profiles);
+
                 this.setState({
                     data: profiles,
                     dataLoaded: true
-                })
+                });
             }).catch(err=> {console.log(err)});
         }else{
-            console.log('feed not loaded yet')
             this.setState({redirect: true})
         }
     }
 
-    sendMessage=(id)=>{
-            console.log(`sending message to ${id}`);
+    sendMessage = id => {
             this.props.recipient(id);
             this.setState({
                 redirect:true,
@@ -59,26 +46,22 @@ class Feed extends Component{
             });
     }
     
-    viewProfile = (id) => {
-        console.log(`Viewing profile of ${id}`);
+    viewProfile = id => {
         this.props.profileToView(id);
         this.setState({
             redirect: true,
             currentPage: `profile/meet`
-        })
+        });
     }
 
     handleFilter = (e) =>{
-        console.log(e.target.value);
         let filterVal = e.target.value;
          axios.get('/profile/feed').then(res => {
-            console.log(res.data);
             let filteredProfiles = res.data.filter(profile=>{
                 if(profile.user_id !== this.props.data.id && profile.class ===filterVal){
                     return profile
                 }
-            })
-            console.log(filteredProfiles);
+            });
             this.setState({
                 data: filteredProfiles,
                 dataLoaded: true
@@ -89,7 +72,6 @@ class Feed extends Component{
 
     restoreSearch = (e) => {
          axios.get('/profile/feed').then(res => {
-            console.log(res.data);
             let profiles = res.data.filter(profile=>{
                 if(profile.user_id !== this.props.data.id ){
                     return profile
@@ -103,8 +85,7 @@ class Feed extends Component{
         }).catch(err=> {console.log(err)});
     }
 
-    renderFeed() {
-        console.log(this.state.data);
+    renderFeed = () => {
         if (this.state.dataLoaded) {
             return (
               <ul className='feed'>  

@@ -33,47 +33,37 @@ class App extends Component {
           recipient: null,
           profileToView: null,
         }
-
-        this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
-        this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
-        this.logOut = this.logOut.bind(this);
      }
 
-     componentWillUpdate(prevState, nextState) {
-       console.log(prevState, nextState)
+     componentWillUpdate = (prevState, nextState) => {
        if(nextState.redirect){
-         console.log(true)
          this.setState({
            redirect: false,
            currentPage: '/'
-         })
+         });
           return true;
        }else{
-         console.log(false)
          return false
        }
      }
      
-handleLoginSubmit = (e, username, password) => {
-  e.preventDefault();
-  console.log("hi");
-  axios.post('/auth/login', {
-    username,
-    password
-  }).then(res => {
-    console.log(res.data.user)
-    this.setState ({
-    auth: res.data.auth,
-    user: res.data.user,
-    currentPage: 'profile',
-    redirect: true
-    })
-  }).catch(err => console.log(err));
-}  
+    handleLoginSubmit = (e, username, password) => {
+      e.preventDefault();
+      axios.post('/auth/login', {
+        username,
+        password
+      }).then(res => {
+        this.setState ({
+        auth: res.data.auth,
+        user: res.data.user,
+        currentPage: 'profile',
+        redirect: true
+        })
+      }).catch(err => console.log(err));
+    }  
 
 handleRegisterSubmit = (e, username, password, email, firstName, lastName) => {
   e.preventDefault();
-  console.log(username);
   axios.post('/auth/register', {
     username,
     password,
@@ -95,19 +85,18 @@ handleProfileFormSubmit = (e, age, class_name, cohort, interest, location, bio, 
   axios.post('/profile',{
     age, class_name, cohort, interest, location, bio, pic, user_id
   }).then(res=>{
-    console.log(res);
     this.setState({
       currentPage: 'profile',
       redirect: true
     })
   }).catch(err=>console.log(err))
 }
-handleRecipient=(id)=>{
+handleRecipient = id => {
   this.setState({
     recipient:id
   });
 }
-handleProfileToView = (id) => {
+handleProfileToView = id => {
   this.setState({
     profileToView: id
   })
@@ -116,7 +105,6 @@ handleProfileToView = (id) => {
 logOut = () => {
   axios.get('/auth/logout')
   .then(res => {
-    console.log(res)
     this.setState ({
       auth: false,
       user: null,

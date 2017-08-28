@@ -17,7 +17,6 @@ class Login extends Component{
         this.setState ({
           [name]: value
         });
-        console.log(this.state.username)
       } 
 
     render(){

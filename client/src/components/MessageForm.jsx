@@ -9,17 +9,8 @@ class MessageForm extends Component {
             text: '',
             redirect: false
         };
-       this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    componentWillMount() {
-        console.log('Checking Logged in Status')
-        if(this.props.authState){
-            console.log('logged in already')
-        }else{
-            console.log('not logged in')
-        }
-    }
     componentDidMount() {
         if(this.props.authState){
             this.setState({redirect: false})
@@ -29,7 +20,7 @@ class MessageForm extends Component {
             })
         }
     }
-    handleInputChange(e) {
+    handleInputChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         this.setState ({
@@ -44,10 +35,9 @@ class MessageForm extends Component {
             time_stamp: (Date().split(' ').slice(4, 5).join(' ')),
             content: this.state.text
         }).then(res=>{
-            console.log(res);
             this.setState({
                 redirect: true
-            })
+            });
         }).catch(err=>{
             console.log(err);
         })

@@ -5,25 +5,16 @@ import axios from 'axios';
 class EventList extends Component{
     constructor(){
         super();
-        this.state ={
+        this.state = { 
             apiLoaded: false,
             apiData: null,
             redirect: false
         }
     }
-    componentWillMount() {
-        console.log('Checking Logged in Status')
-        if(this.props.authState){
-            console.log('logged in already')
-        }else{
-            console.log('not logged in')
-        }
-    }
-    componentDidMount() {
-        console.log(this.props.user);   
+
+    componentDidMount() { 
         if(this.props.user !== null){
-            axios.get(`/events/myevents/${this.props.user.id}`).then(res=>{
-                console.log(res.data);
+            axios.get(`/events/myevents/${this.props.user.id}`).then(res => {
                 this.setState({
                     apiData: res.data,
                     apiLoaded:true,
@@ -33,23 +24,18 @@ class EventList extends Component{
         }else{
             this.setState({
                 redirect: true
-            })
+            });
         }
     }
-    removeFromList=(data)=>{
+    removeFromList= data => {
         axios.delete(`/events/${data.event_id}`).then(res=>{
-            console.log(res);
             let currentEvents = this.state.apiData;
-            console.log(currentEvents);
             currentEvents = currentEvents.filter(event=>{
                     return event.event_id !== data.event_id
                 });
             this.setState({
                 apiData: currentEvents
-            },()=>{
-                console.log(currentEvents);
             });
-
         }).catch(err=>{
             console.log(err);
         })
@@ -60,7 +46,6 @@ class EventList extends Component{
             return (
                     <ul className='event-info'>
                     {this.state.apiData.map((event, i) => {
-                        console.log(event)
                         let eventTime = new Date(event.data.time).toString().split(' ').slice(0, 5).join(' ');
                         return (
                             <li className='event' key={i}>
