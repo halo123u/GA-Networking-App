@@ -19,34 +19,23 @@ class ProfileEdit extends Component {
             redirect: false
         }
     } 
-    componentWillMount() {
-        console.log('Checking Logged in Status')
-        if(this.props.authState){
-            console.log('logged in already')
-        }else{
-            console.log('not logged in')
-        }
-    }
 
     componentDidMount() {
-        console.log('edit profile mounted')
         if(this.props.data !== null){
-            console.log(this.props.data)
             this.setState({
                 userInfo: this.props.data,
                 user_id: this.props.data.id,
                 redirect: false
-            })
+            });
+
         axios.get(`/profile/${this.props.data.id}`)
         .then((res) => {
-            console.log(res.data[0])
             let info = res.data[0]
             this.setState({
                 formData: info,
             })
         }).catch(err => console.log(err));
         }else{
-            console.log('Profile not loaded')
             this.setState({
                 redirect: true
             })

@@ -14,27 +14,15 @@ class Register extends Component{
             redirect: false
         }
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-
     }
 
-    componentWillMount() {
-        console.log('Checking Logged in Status')
-        if(this.props.authState){
-            console.log('logged in already')
-            this.setState({redirect: true})
-        }else{
-            console.log('not logged in')
-            this.setState({redirect: false})
-        }
-    }
 
-    handleInputChange(e) {
+    handleInputChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({
             [name]: value
-        })
+        });
     }
 
     render(){

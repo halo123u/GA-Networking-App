@@ -14,15 +14,6 @@ class OtherProfile extends Component{
         }
     }
 
-    componentWillMount() {
-        console.log('Checking Logged in Status')
-        if(this.props.authState){
-            console.log('logged in already')
-        }else{
-            console.log('not logged in')
-        }
-    }
-
     componentDidMount() {
         this.setState({userInfo: this.props.data})
         if (this.props.data !== null) {
@@ -33,19 +24,17 @@ class OtherProfile extends Component{
                         return profile
                     }
                 })
-                console.log(filteredProfile);
                 this.setState({
                     otherUserInfo: filteredProfile[0],
                     dataLoaded: true
                 })
             }).catch(err=> {console.log(err)});
         }else{
-            console.log('feed not loaded yet')
             this.setState({redirect: true})
         }
     }
 
-    renderProfile(){
+    renderProfile = () => {
         if(this.state.otherUserInfo) {
             let otherUserInfo = this.state.otherUserInfo;
          return(

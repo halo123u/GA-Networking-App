@@ -11,30 +11,17 @@ class Profile extends Component{
             redirect: false
         }
     }
-    componentWillMount() {
-        console.log('Checking Logged in Status')
-        if(this.props.authState){
-            console.log('logged in already')
-        }else{
-            console.log('not logged in')
-        }
-    }
 
     componentDidMount() {
-        console.log('Fetching profile')
         if(this.props.data !== null){
-            console.log(this.props.data.id)
             axios.get(`/profile/${this.props.data.id}`)
             .then((res) => {
-                console.log(res.data[0])
                 this.setState ({
                     profileInfo: res.data[0],
                     redirect: false
                 })
             }).catch(err => console.log(err))
-            console.log(this.props.data)
         } else {
-            console.log('Profile not loaded')
             this.setState({
                 redirect: true
             })
@@ -75,7 +62,7 @@ class Profile extends Component{
         const {redirect} = this.state;
         return(
            <div className="Profile">
-                {redirect ?(<Redirect to='/login'/>) : null}
+                {redirect   ?(<Redirect to='/login'/>) : null}
                 <h1 className="pageTitle"> Profile <i className="material-icons">perm_identity</i> </h1>
             <ul>
                 <li> {this.renderProfile()} </li> 

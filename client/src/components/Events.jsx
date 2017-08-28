@@ -14,23 +14,19 @@ class Events extends Component {
     componentDidMount() {
         axios.get('/events')
         .then(res => {
-            console.log(res)
             this.setState({
                 eventInfo: res.data.results,
                 eventInfoLoaded: true,
-            })
-        })
+            });
+        });
     }
-    addToList=(event)=>{
-        console.log('this link works');
-        console.log(event);
-        // console.log(this.props);
+
+    addToList = event => {
         axios.post('/events',{event: event , user_id: this.props.data.id});
         this.setState({
             redirect:true
         });
     }
-
 
     render() {
       if(this.state.eventInfoLoaded) {
