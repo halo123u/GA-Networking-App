@@ -8,10 +8,9 @@ class Login extends Component{
             username: '',
             password: ''
         }
-        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    handleInputChange(e) {
+    handleInputChange =  (e) => {
         const name = e.target.name;
         const value = e.target.value;
         this.setState ({
