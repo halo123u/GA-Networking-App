@@ -7,4 +7,5 @@ events.get('/', eventsHelpers.getEvents,eventsController.getAllEvents);
 events.get('/myevents/:id',eventsController.getMyEvents);
 events.delete('/:id',eventsController.deleteMyEvents);
 events.post('/', eventsController.addMyEvents);
+
 module.exports = events;

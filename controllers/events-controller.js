@@ -5,25 +5,18 @@ const eventsController = {
         res.json(res.locals.data);
     },
     addMyEvents: (req,res) =>{
-        // console.log(req.body.event);
-        // console.log(JSON.stringify(req.body.event));
-        console.log(req.body.user_id);
-        MyEvent.addEvent(JSON.stringify(req.body.event),req.body.user_id).then(res=>{
-            console.log(res);
-        }).catch(err=>{
+        MyEvent.addEvent(JSON.stringify(req.body.event),req.body.user_id).then(res => {
+        }).catch(err => {
             console.log(err);
         })
 
     },
-    getMyEvents: (req,res)=>{
-
-        MyEvent.getMyEvents(req.params.id).then(data=>{
+    getMyEvents: (req,res) => {
+        MyEvent.getMyEvents(req.params.id).then( data => {
             res.json(data);
         }).catch(err=>console.log(err));
     },
-    deleteMyEvents:(req,res)=>{
-        console.log('event deleted');
-        console.log(req.params.id);
+    deleteMyEvents:(req,res) => {
         MyEvent.deleteEvent(req.params.id).then(data=>{
             res.json(data);
         }).catch(err=>console.log(err));
