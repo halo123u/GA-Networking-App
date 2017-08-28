@@ -14,7 +14,7 @@ class Home extends Component{
         return(
             <div className="appHome mdl-card mdl-shadow--8dp">
                 <div className="mdl-card__title">
-                    <h2 className="mdl-card__title-text">GA Networking App</h2>
+                    <h2 className="mdl-card__title-text">LinkGA</h2>
                 </div>
                 <div className="mdl-card__supporting-text">
                     Start making connections today!
