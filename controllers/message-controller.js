@@ -20,14 +20,11 @@ const messageController = {
     },
 
     createMessage: (req, res) => {
-        console.log(req.body.recipient_id);
-        console.log(req.body.time_stamp);
-        console.log(req.body.content);
         Message.create({
             recipient_id: req.body.recipient_id,
             time_stamp: req.body.time_stamp,
             content: req.body.content
-        }, req.params.user_id).then(message=>{
+        }, req.params.user_id).then(message => {
             res.json({message});
         }).catch(err=>{
             console.log(err);
@@ -35,7 +32,7 @@ const messageController = {
     },
 
     deleteMessage: (req, res) => {
-        Message.delete(req.params.id).then(message=>{
+        Message.delete(req.params.id).then(message => {
             res.json(message);
         }).catch(err=>{
             console.log(err);
