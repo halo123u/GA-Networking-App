@@ -1,8 +1,11 @@
+//require fetch and secret key
 require('isomorphic-fetch');
 require('dotenv').config();
 
+//get API key from .env file
 const API_KEY = process.env.API_KEY;
 
+//fetch request to Meetup API
 function getEvents (req, res, next) {
     console.log('this is the helper');
     fetch(`https://api.meetup.com/2/open_events?&sign=true&photo-host=public&zip=10010&country=United States&topic=technology&city=New York&state=NY&radius=2&page=15&key=${API_KEY}`)
