@@ -16,7 +16,7 @@ const Header = (props) => {
             <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
                 <header className="mdl-layout__header">
                     <div className="mdl-layout__header-row">
-                    <span className="mdl-layout-title">GA Networking</span>
+                    <span className="mdl-layout-title">LinkGA</span>
                     <div className="mdl-layout-spacer"></div>
                     <nav className="mdl-navigation mdl-layout--large-screen-only">
                         <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
@@ -34,7 +34,7 @@ const Header = (props) => {
                     </div>
                 </header>
                 <div className="mdl-layout__drawer">
-                    <span className="mdl-layout-title">GA Networking</span>
+                    <span className="mdl-layout-title">LinkGA</span>
                     <nav className="mdl-navigation">
                      <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/'>Home</Link>
                         <Link className="mdl-navigation__link" style={props.authState ? styles.hideNavItem : styles.showNavItem} to='/login'>Login</Link>
