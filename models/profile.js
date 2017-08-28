@@ -2,10 +2,12 @@ const db = require('../db/config');
 
 
 const Profile ={
+   //model to show a profile 
    getInfo: (id) =>{
        return db.query(`SELECT * FROM profile
         WHERE user_id=$1`, [id]);
     },
+    //model to set a profile's info
     setInfo: (profile)=>{
         return db.one(`
         INSERT INTO profile(age,class,cohort,interest,location,bio,picture_url, user_id)
@@ -13,6 +15,7 @@ const Profile ={
         RETURNING *`,
         [profile.age,profile.class,profile.cohort,profile.interest, profile.location,profile.bio,profile.picture_url,profile.user_id])
     },
+    //model to edit profile info
     editInfo : (profile,id)=>{
         return db.one(`
         UPDATE profile SET
@@ -27,6 +30,7 @@ const Profile ={
         RETURNING *`,
     [profile.age,profile.class,profile.cohort,profile.interest, profile.location,profile.bio,profile.picture_url,id])
     },
+    //model to show all users profiles in the feed
     getAll: ()=>{
         return db.query(`
         SELECT users.first_name, users.last_name, profile.age, profile.class, profile.cohort, profile.interest, profile.location, profile.bio, profile.picture_url, profile.user_id 
