@@ -1,7 +1,9 @@
+//dependencies and files required
 const express = require('express');
 const messages = express.Router();
 const messageController = require('../controllers/message-controller');
 
+//routes for sending and receiving messages and seeing messages
 messages.get('/sent/:id', messageController.getAllSentMessages);
 messages.get('/received/:id', messageController.getAllReceivedMessages);
 messages.get('/:id', messageController.getMessageById);
