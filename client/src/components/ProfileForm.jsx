@@ -39,7 +39,7 @@ class ProfileForm extends Component{
     }
     
     render(){
-        const {redirect} = this.state;
+        const {redirect} = this.state; 
         return(
             <div className="edit-form mdl-card mdl-shadow--8dp">  
                 <div className="mdl-card__title">
