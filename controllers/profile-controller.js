@@ -1,6 +1,7 @@
 const Profile = require('../models/profile');
 
 const profileController = {
+    //controller to show profile
     getProfile: (req,res)=>{
         Profile.getInfo(req.params.id).then(data=>{
             res.json(data);
@@ -8,6 +9,7 @@ const profileController = {
             console.log(err);
         });
     },
+    //controller to create profile
     createProfile: (req,res) => {
         Profile.setInfo({
             age: req.body.age,
@@ -25,6 +27,7 @@ const profileController = {
                 res.send(err);
             });
     },
+    //controller to edit profile
     editProfile: (req,res)=>{
         Profile.editInfo({
             age: req.body.age,
@@ -43,6 +46,7 @@ const profileController = {
             res.json(err);
         });
     },
+    //controller to render all profiles in feed
     getAllProfiles: (req,res)=>{
         Profile.getAll().then(data=>{
             console.log(data);
