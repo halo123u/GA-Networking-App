@@ -55,6 +55,7 @@ table {
 nav {
     display: flex;
     justify-content: space-around;
+    z-index: 1;
 }
 
 nav li {
